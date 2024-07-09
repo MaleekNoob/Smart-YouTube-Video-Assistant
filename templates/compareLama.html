@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Comparison Result</h1>
+    <div class="card mt-3">
+        <div class="card-body">
+                {{comparison|safe}}
+        </div>
+    </div>
+    <a href="{{ url_for('compare_index') }}" class="btn btn-primary mt-3">Compare Another Pair</a>
+</div>
+{% endblock %}

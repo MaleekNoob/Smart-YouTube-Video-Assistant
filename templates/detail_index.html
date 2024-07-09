@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Get Detailed Information on a Specific Point</h2>
+    <form action="{{ url_for('detail') }}" method="POST">
+        <div class="mb-3">
+            <label for="youtube-url">YouTube URL:</label>
+            <input type="text" class="form-control" id="youtube-url" name="youtube-url" required>
+        </div>
+        <div class="mb-3">
+            <label for="specific-point">Specific Point/Topic:</label>
+            <input type="text" class="form-control" id="specific-point" name="specific-point" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Details</button>
+    </form>
+</div>
+{% endblock %}

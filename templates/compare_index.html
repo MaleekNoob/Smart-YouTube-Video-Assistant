@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Compare Two Items from a YouTube Video</h1>
+    <form action="{{ url_for('compare') }}" method="POST">
+        <div class="form-group">
+            <label for="youtube-url">YouTube URL:</label>
+            <input type="text" class="form-control" id="youtube-url" name="youtube-url" required>
+        </div>
+        <div class="form-group">
+            <label for="item-a">Item A:</label>
+            <input type="text" class="form-control" id="item-a" name="item-a" required>
+        </div>
+        <div class="form-group">
+            <label for="item-b">Item B:</label>
+            <input type="text" class="form-control" id="item-b" name="item-b" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Compare</button>
+    </form>
+</div>
+{% endblock %}

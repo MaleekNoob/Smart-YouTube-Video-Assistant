@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-body">
+            {% for definition in result %}
+            <div class="definition-item mb-3">
+                {% if ':' in definition %}
+                <p class="definition font-weight-bold h4">{{ definition }}</p>
+                {% else %}
+                <p class="definition">{{ definition }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{{ url_for('define_index') }}" class="btn btn-primary">Define Another Term</a>
+</div>
+{% endblock %}

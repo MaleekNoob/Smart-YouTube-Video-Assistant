@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Comparison Result</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>{{ item_a }}</strong>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {% for sublist in item_a_text %}
+                            <li>{{sublist}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>{{ item_b }}</strong>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {% for sublist in item_b_text %}
+                            <li>{{sublist}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('compare_index') }}" class="btn btn-primary mt-3">Compare Another Pair</a>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Generic prompt</h2>
+    <form method="POST" action="{{ url_for('generic') }}">
+        <div class="mb-3">
+            <label for="youtube-url" class="form-label">URL of Video</label>
+            <textarea class="form-control" name="youtube-url" rows="1" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="prompt" class="form-label">Prompt</label>
+            <textarea class="form-control" name="prompt" rows="1" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate results</button>
+    </form>
+</div>
+{% endblock %}

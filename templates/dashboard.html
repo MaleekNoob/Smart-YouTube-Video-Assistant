@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+    <h2>Your Summaries</h2>
+    <ul class="list-group">
+    {% for text in texts %}
+        <li class="list-group-item mb-4"> 
+            <h5>Original Text</h5>
+            <p>{{ text.original_text }}</p>
+            <h5>Summary</h5>
+            <p>{{ text.summary }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

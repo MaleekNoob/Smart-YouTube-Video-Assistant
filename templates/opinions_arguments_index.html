@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Analyze Opinions and Arguments</h2>
+    <form method="POST" action="{{ url_for('opinions_arguments') }}">
+        <div class="mb-3">
+            <label for="url" class="form-label">YouTube Video URL</label>
+            <input type="text" class="form-control" name="youtube-url" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+</div>
+{% endblock %}

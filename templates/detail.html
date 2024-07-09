@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-body">
+            {% for line in detail %}
+            <div class="details mb-3">
+                {% if ':' in line %}
+                <p class="heading font-weight-bold h4">{{ line }}</p>
+                {% else %}
+                <p class="detail">{{ line }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+            
+    <a href="{{ url_for('detail_index') }}" class="btn btn-primary">Go Back</a>
+</div>
+{% endblock %}

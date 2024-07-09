@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Generate Questions and Answers</h2>
+    <form method="POST" action="{{ url_for('qa') }}">
+        <div class="mb-3">
+            <label for="text" class="form-label">Enter Url to Video to Generate Questions and Answers</label>
+            <textarea class="form-control" name="youtube-url" rows="10" cols="50" placeholder="Enter url here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+</div>
+{% endblock %}

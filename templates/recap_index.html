@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Recap Event</h2>
+    <form method="POST" action="{{ url_for('recap') }}">
+        <div class="mb-3">
+            <label for="youtube-url" class="form-label">URL of Video</label>
+            <textarea class="form-control" name="youtube-url" rows="1" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Recap</button>
+    </form>
+</div>
+{% endblock %}

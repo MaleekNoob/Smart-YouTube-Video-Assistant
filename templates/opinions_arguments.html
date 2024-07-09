@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Opinions and Arguments</h2>
+    {% if analysis %}
+        <h3>Analysis of {{ url }}</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Opinions</h4>
+                <ul>
+                    {% for opinion in analysis.opinions %}
+                        <li>{{ opinion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4>Arguments</h4>
+                <ul>
+                    {% for argument in analysis.arguments %}
+                        <li>{{ argument }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <form method="POST" action="{{ url_for('opinions_arguments') }}">
+            <div class="mb-3">
+                <label for="topic" class="form-label">Topic</label>
+                <input type="text" class="form-control" name="topic" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

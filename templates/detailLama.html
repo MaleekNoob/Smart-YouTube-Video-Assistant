@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-body">
+            {{ detail|safe}}
+        </div>
+    </div>
+            
+    <a href="{{ url_for('detail_index') }}" class="btn btn-primary">Go Back</a>
+</div>
+{% endblock %}

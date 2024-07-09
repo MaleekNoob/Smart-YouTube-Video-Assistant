@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Technical Details</Details></h2>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Summary</h5>
+            <p class="card-text">{{ summary }}</p>
+        </div>
+    </div>
+    <a href="{{ url_for('tech_details') }}" class="btn btn-secondary mt-3">Find Technical details for any other word</a>
+</div>
+{% endblock %}

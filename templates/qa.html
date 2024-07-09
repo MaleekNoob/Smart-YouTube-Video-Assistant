@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Questions and Answers</h1>
+    <h2>Questions:</h2>
+    <ul>
+        {% for question in qa_dict.questions %}
+            <li>{{ question }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Answers:</h2>
+    <ul>
+        {% for answer in qa_dict.answers %}
+            <li>{{ answer }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('qa') }}">Generate New</a>
+{% endblock %}

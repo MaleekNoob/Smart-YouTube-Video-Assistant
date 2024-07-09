@@ -1,0 +1,14 @@
+{
+  "name": "your-package-name",
+  "version": "1.0.0",
+  "description": "Your package description",
+  "main": "index.js",
+  "type": "module", 
+  "scripts": {
+    "start": "node caption-scraper.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.0.0",
+    "youtube-captions-scraper": "^1.0.0"
+  }
+}

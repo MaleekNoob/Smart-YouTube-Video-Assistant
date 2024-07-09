@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Extract     Technical Details</h2>
+    <form method="POST" action="{{ url_for('tech_details') }}">
+        <div class="mb-3">
+            <label for="tech_details_finder" class="form-label">Url of the Youtube Video</label>
+            <textarea class="form-control" name="youtube-url" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Summarize</button>
+    </form>
+</div>
+{% endblock %}

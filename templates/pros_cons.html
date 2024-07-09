@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Pros and Cons - Text Summarizer{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Pros and Cons</h1>
+    {% if analysis %}
+        <h3>Analysis of {{ url }}</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Pros</h4>
+                <ul>
+                    {% for pro in analysis.pros %}
+                        <li>{{ pro }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4>Cons</h4>
+                <ul>
+                    {% for con in analysis.cons %}
+                        <li>{{ con }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <form method="POST" action="{{ url_for('pros_cons') }}">
+            <div class="mb-3">
+                <label for="topic" class="form-label">Topic</label>
+                <input type="text" class="form-control" name="topic" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Event Recap</h2>
+    
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Recap</h5>
+            <ol>
+                {% for event in recap.split('.\n') %}
+                    {% if event %}
+                        <li>{{ event }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Recap Another Event</a>
+</div>
+{% endblock %}

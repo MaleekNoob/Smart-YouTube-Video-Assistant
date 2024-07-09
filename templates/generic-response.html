@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Generic prompt Response</h2>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Generated Generic Response</h5>
+            <br>
+            {{ generic|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

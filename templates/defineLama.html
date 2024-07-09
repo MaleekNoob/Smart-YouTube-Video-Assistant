@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="definition-item mb-3">
+                {{ result |safe}}
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('define_index') }}" class="btn btn-primary">Define Another Term</a>
+</div>
+{% endblock %}

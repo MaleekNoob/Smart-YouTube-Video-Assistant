@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Summarize Text with Images</h2>
+    <form method="POST" action="{{ url_for('image') }}">
+        <div class="mb-3">
+            <label for="youtube-url" class="form-label">URL of Video</label>
+            <textarea class="form-control" name="youtube-url" rows="1" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="summary_size" class="form-label">Summary Size (in words)</label>
+            <input type="number" class="form-control" name="summary_size" min="1" max="500" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Summarize with Images</button>
+    </form>
+
+</div>
+{% endblock %}
