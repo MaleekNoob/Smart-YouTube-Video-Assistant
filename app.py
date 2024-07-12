@@ -538,20 +538,22 @@ def image():
     lang = request.form.get('language')
 
     # Now get captions from video
-    main_text = get_captions_with_time(url)
+    #main_text = get_captions_with_time(url)
+    main_text = "jhj"
     # print("main text",main_text)
     summary_size = request.form.get('summary_size', type=int, default=100)  # Default summary size if not provided
     image_frames = []
+    keyimage = {}
     try:
         prompt = f"'''input: Recap the event discussed in the following text in the main event points in numbered form : {main_text}. Do not include any pre-text like here are the main events. start directly from the points with 1 2 3 etc'''"
         response = model.generate_content([prompt])
         keypoints = response.text
-        lines = keypoints.splitlines()
+        lines = keypoints.splitlines()f
         # print(response.text)
-
+        print("hhjhjhjhjh")
         video_path, subtitle_path = download_video_and_subtitles(url)
         # Initialize lists and dictionaries
-        keyimage = {}
+        
 
         # Process each line in 'lines'
         for line in lines:
