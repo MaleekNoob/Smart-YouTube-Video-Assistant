@@ -13,7 +13,8 @@ import markdown2
 import ollama
 import yt_dlp
 import shutil
-
+from urllib.parse import urlparse
+import re
 """
    FOR 
    WHISPER 
@@ -125,6 +126,10 @@ app = Flask(__name__)
 
 # Configure the Google Generative AI
 genai.configure(api_key=os.getenv("GEM_KEY"))
+
+# Your API key and Programmable Search Engine ID
+api_key = 'AIzaSyCAV73EKedKhVm3Vslz389wY6_OB1z2aw0'
+cse_id = '74a9c6ca4ecd7403c'
 
 generation_config = {
     "temperature": 0.7,
@@ -307,6 +312,39 @@ def download_video_and_subtitles(video_url):
         video_path = os.path.join(VIDEO_DOWNLOAD_PATH, f"{video_id}.{video_ext}")
         subtitle_path = os.path.join(VIDEO_DOWNLOAD_PATH, f"{video_id}.en.srt")
         return video_path, subtitle_path
+    
+
+def google_search(query, api_key, cse_id, **kwargs):
+    url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        'q': query,
+        'key': api_key,
+        'cx': cse_id
+    }
+    params.update(kwargs)
+    response = requests.get(url, params=params)
+    return response.json()
+
+# Function to extract date from snippet using regex
+def extract_date(snippet):
+    # Regex pattern for various date formats
+    date_pattern = re.compile(r'\b(?:\d{1,2} (?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) \d{4}|'  # dd MMM yyyy
+                               r'(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) \d{1,2} \d{4}|'  # MMM dd yyyy
+                               r'\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?|\d{4}) \d{1,2}, \d{4}|'  # MMM dd, yyyy
+                               r'\d{4})')  # yyyy
+    match = date_pattern.search(snippet)
+    return match.group(0) if match else "Date not found"
+
+# Define a function to extract the publisher from the URL
+def extract_publisher(url):
+    domain = urlparse(url).netloc
+    # Remove 'www.' prefix if it exists
+    if domain.startswith('www.'):
+        domain = domain[4:]
+    # Extract publisher name before the first dot
+    publisher = domain.split('.')[0]
+    return publisher.capitalize()
+
 
 
 
@@ -518,6 +556,26 @@ def summarize():
         return render_template('summarize.html', original_text=main_text, summary=summary)
     else:
         return render_template('error.html', error=error)
+    
+@app.route('/web_search_component')
+def web_sources():
+
+    title = '$10,000 Every Day You Survive In The Wilderness'
+    prompt = f"I want you to give heading for the following YouTube video title: {title} "
+    response = model.generate_content([prompt])
+    search_query = response.text
+
+    print("Search Query: ", search_query)
+
+    results = google_search(search_query, api_key, cse_id, num=4)
+
+    search_data = [
+        {"title": "$10,000 Every Day You Survive In...'", "publisher": "YouTube", "date": 'Jun 1, 2024', "url": 'https://www.youtube.com/watch?v=U_LlX4t0A9I'},
+        {"title": "MrBeast on X: \"Just filmed our bi...", "publisher": "Twitter", "date": 'Jun 5, 2024', "url": 'https://twitter.com/MrBeast/status/1798465522008252438'},
+        {"title": "Protect The Yacht, Keep It! ...", "publisher": "YouTube", "date": 'May 11, 2024', "url": 'https://www.youtube.com/watch?v=F6PqxbvOCUI&vl=en'},
+        {"title": "The new MrBeast video is kind of a s...", "publisher": "Reddit", "date": 'Apr 20, 2024', "url": 'https://www.reddit.com/r/MrBeast/comments/1c8w8j4/the_new_mrbeast_video_is_kind_of_a_sad_reality/'}
+    ]
+    return render_template('sources.html', search_data=search_data)
 
 
 # for image based
@@ -548,7 +606,7 @@ def image():
         prompt = f"'''input: Recap the event discussed in the following text in the main event points in numbered form : {main_text}. Do not include any pre-text like here are the main events. start directly from the points with 1 2 3 etc'''"
         response = model.generate_content([prompt])
         keypoints = response.text
-        lines = keypoints.splitlines()f
+        lines = keypoints.splitlines()
         # print(response.text)
         print("hhjhjhjhjh")
         video_path, subtitle_path = download_video_and_subtitles(url)
