@@ -275,6 +275,16 @@ def get_captions_with_time(url):
         print(f"An unexpected error occurred: {e}")
         print("No captions in video, trying with audio manually")
         return transcribe_url(url)
+    
+
+def get_video_title(url):
+    try:
+        yt = YouTube(url)
+        title = yt.title
+        return title
+    except Exception as e:
+        print(f"Failed to get video title: {e}")
+        return "Video Title Not Found"
 
 
 def extract_frame(video_path, timestamps_seconds):
@@ -325,6 +335,19 @@ def google_search(query, api_key, cse_id, **kwargs):
     response = requests.get(url, params=params)
     return response.json()
 
+def google_search_video(query, api_key, cse_id, **kwargs):
+    url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        'q': query,
+        'key': api_key,
+        'cx': cse_id,
+        'searchType': 'video',
+        'siteSearch': 'youtube.com'
+    }
+    params.update(kwargs)
+    response = requests.get(url, params=params)
+    return response.json()
+
 # Function to extract date from snippet using regex
 def extract_date(snippet):
     # Regex pattern for various date formats
@@ -344,6 +367,12 @@ def extract_publisher(url):
     # Extract publisher name before the first dot
     publisher = domain.split('.')[0]
     return publisher.capitalize()
+
+def modify_string(input_string):
+    if len(input_string) > 35:
+        return input_string[:30] + '...'
+    else:
+        return input_string
 
 
 
@@ -560,21 +589,52 @@ def summarize():
 @app.route('/web_search_component')
 def web_sources():
 
-    title = '$10,000 Every Day You Survive In The Wilderness'
-    prompt = f"I want you to give heading for the following YouTube video title: {title} "
+    url = 'https://youtu.be/43d2LhXCQvQ?si=xEvm-cUIZMohKrAQ'
+    title = get_video_title(url)
+    prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
     response = model.generate_content([prompt])
     search_query = response.text
 
     print("Search Query: ", search_query)
 
+    results = google_search(search_query, api_key, cse_id, num=4, siteSearch='youtube.com')
+
+    # Process and print the results
+    for item in results.get('items', []):
+        print(f"Title: {item['title']}")
+        print(f"Link: {item['link']}")
+        print(f"Thumbnail: {item.get('pagemap', {}).get('cse_thumbnail', [{}])[0].get('src')}")
+        print('-' * 80)
+
+    search_query += ' -site:youtube.com'
+
     results = google_search(search_query, api_key, cse_id, num=4)
 
-    search_data = [
-        {"title": "$10,000 Every Day You Survive In...'", "publisher": "YouTube", "date": 'Jun 1, 2024', "url": 'https://www.youtube.com/watch?v=U_LlX4t0A9I'},
-        {"title": "MrBeast on X: \"Just filmed our bi...", "publisher": "Twitter", "date": 'Jun 5, 2024', "url": 'https://twitter.com/MrBeast/status/1798465522008252438'},
-        {"title": "Protect The Yacht, Keep It! ...", "publisher": "YouTube", "date": 'May 11, 2024', "url": 'https://www.youtube.com/watch?v=F6PqxbvOCUI&vl=en'},
-        {"title": "The new MrBeast video is kind of a s...", "publisher": "Reddit", "date": 'Apr 20, 2024', "url": 'https://www.reddit.com/r/MrBeast/comments/1c8w8j4/the_new_mrbeast_video_is_kind_of_a_sad_reality/'}
-    ]
+    search_data = []
+
+    for item in results.get('items', []):
+        title = item.get('title', 'No title')
+        title = modify_string(title)
+        snippet = item.get('snippet', 'No snippet')
+        link = item.get('link', 'No link')
+    
+        # Extract the date from the snippet
+        date = extract_date(snippet)
+        publisher = extract_publisher(link)
+        
+        # print(f"Title: {title}")
+        # print(f"Link: {link}")
+        # print(f"Date: {date}")
+        # print(f"Publisher: {publisher}")
+        # print('-' * 80)
+
+        search_data.append({
+            'title': title,
+            'publisher': publisher,
+            'date': date,
+            'url': link
+        })
+
     return render_template('sources.html', search_data=search_data)
 
 
