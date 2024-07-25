@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dynamic Web Section</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic recommendation Module</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/sources.css') }}">
 </head>
 <body>
-    <div class="web-section">
-        {% for data in search_data %}
-        <div class="box" onclick="window.location.href='{{ data.url }}'">
-            <h2 class="title">{{ data.title }}</h2>
-            <p class="publisher">{{ data.publisher }}</p>
-            <span class="date">{{ data.date }}</span>
+
+        <div class="web-section">
+            {% for data in search_data %}
+            <div class="box" onclick="window.location.href='{{ data.url }}'">
+                <h2 class="title">{{ data.title }}</h2>
+                <p class="publisher">{{ data.publisher }}</p>
+                <span class="date">{{ data.date }}</span>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
+    
+
+
     <script src="{{ url_for('static', filename='js/sources.js') }}"></script>
 </body>
 </html>

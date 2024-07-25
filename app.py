@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, jsonify, request, render_template, redirect, url_for, flash
 import google.generativeai as genai
 import os
 import subprocess
@@ -335,6 +335,18 @@ def google_search(query, api_key, cse_id, **kwargs):
     response = requests.get(url, params=params)
     return response.json()
 
+def google_search_image(query, api_key, cse_id, search_type="image", **kwargs):
+    url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        'q': query,
+        'key': api_key,
+        'cx': cse_id,
+        'searchType': search_type
+    }
+    params.update(kwargs)
+    response = requests.get(url, params=params)
+    return response.json()
+
 def google_search_video(query, api_key, cse_id, **kwargs):
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
@@ -586,6 +598,82 @@ def summarize():
     else:
         return render_template('error.html', error=error)
     
+
+@app.route('/more_images')
+def more_images():
+    search_query = request.args.get('query', default='', type=str)
+    image_search_result = google_search_image(search_query, api_key, cse_id, num=4)
+
+    image_search_data = []
+    for item in image_search_result.get('items', []):
+        link = item.get('link', 'No link')
+        image_search_data.append({'url': link})
+
+    return jsonify(image_search_data)
+
+
+@app.route('/more_videos')
+def more_videos():
+    search_query = request.args.get('query', default='', type=str)
+    video_search_result = google_search(search_query, api_key, cse_id, num=3, siteSearch='youtube.com')
+
+    video_search_data = []
+    for item in video_search_result.get('items', []):
+        title = item.get('title', 'No title')
+        title = modify_string(title)
+        link = item.get('link', 'No link')
+        thumbnail = item.get('pagemap', {}).get('cse_thumbnail', [{}])[0].get('src', 'No thumbnail')
+        video_search_data.append({
+            'title': title,
+            'url': link,
+            'thumbnail': thumbnail
+        })
+
+    return jsonify(video_search_data)
+    
+
+@app.route('/recommendation')
+def recommendation():
+    url = 'https://youtu.be/V3qXgWtomLU?si=hqxoeCSL7txYugPo'
+    title = get_video_title(url)
+    prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
+    response = model.generate_content([prompt])
+    search_query = response.text
+
+    print("Search Query: ", search_query)
+
+    video_search_result = google_search(search_query, api_key, cse_id, num=3, siteSearch='youtube.com')
+    image_search_result = google_search_image(search_query, api_key, cse_id, num=4)
+
+    video_search_data = []
+    image_search_data = []
+
+    # Process video search results
+    for item in video_search_result.get('items', []):
+        title = item.get('title', 'No title')
+        title = modify_string(title)
+        link = item.get('link', 'No link')
+        thumbnail = item.get('pagemap', {}).get('cse_thumbnail', [{}])[0].get('src', 'No thumbnail')
+
+        video_search_data.append({
+            'title': title,
+            'url': link,
+            'thumbnail': thumbnail
+        })
+
+    # Process image search results
+    for item in image_search_result.get('items', []):
+        link = item.get('link', 'No link')
+
+        image_search_data.append({
+            'url': link
+        })
+
+    return render_template('recommendation.html', video_search_data=video_search_data, image_search_data=image_search_data)
+
+
+
+    
 @app.route('/web_search_component')
 def web_sources():
 
@@ -596,15 +684,6 @@ def web_sources():
     search_query = response.text
 
     print("Search Query: ", search_query)
-
-    results = google_search(search_query, api_key, cse_id, num=4, siteSearch='youtube.com')
-
-    # Process and print the results
-    for item in results.get('items', []):
-        print(f"Title: {item['title']}")
-        print(f"Link: {item['link']}")
-        print(f"Thumbnail: {item.get('pagemap', {}).get('cse_thumbnail', [{}])[0].get('src')}")
-        print('-' * 80)
 
     search_query += ' -site:youtube.com'
 

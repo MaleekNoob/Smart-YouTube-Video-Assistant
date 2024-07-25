@@ -1,8 +1,8 @@
 .web-section {
+    width: 60%;
     display: flex;
-    justify-content: space-between;
+    margin-right: 40%;
     margin-left: 10%;
-    margin-right: 20%;
 }
 
 .box {
@@ -17,7 +17,7 @@
     margin-top: 10%;
 
     border-radius: 10px; /* Adjust the value to control the roundness */
-    position: relative;
+    /* position: relative; */
 }
 
 .date {
