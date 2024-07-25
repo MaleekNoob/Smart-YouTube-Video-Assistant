@@ -1,27 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #010d06;
+    background-color: #1e1e1e;
     color: white;
     margin: 0;
     padding: 0;
 }
 
 .side-panel {
-    width: 300px;
+    width: 250px;
     background-color: #333;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-left: 75%;
-    margin-top: 2%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    
-    position: relative;
+    margin-left: 79%;
+    margin-top: 1%;
+    margin-right: 1%;
 }
 
 .section {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .section h2 {
@@ -31,51 +28,75 @@ body {
     padding-bottom: 5px;
 }
 
-.images-container, .videos-container {
+.images-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
+.videos-container {
+    /* display: flex; */
+    flex-wrap: wrap;
+}
+
 .image-item {
-    width: 40%;
+    width: 45%;
     cursor: pointer;
+    border-radius: 10px;
+    /* align-items: center; */
 }
 
 .video-item {
-    width: 55%;
+    width: 100%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: -10px;
 }
 
-.image-item img, .video-item img {
+.image-item img {
     width: 100%;
     border-radius: 5px;
+    margin-right:auto;
+}
+
+.video-item img {
+    width: 50%;
+    border-radius: 15px;
+}
+
+.video-info {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .video-title {
-    font-size: 14px;
-    margin: 2px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .video-publisher, .video-views {
-    font-size: 12px;
-    margin: 2px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: lighter;
+    font-size: 11px;
     color: #aaa;
+    font-weight: lighter;
+    line-height: 80%;
 }
 
 .view-more-btn {
     display: block;
-    width: 85%;
+    width: 100%;
     padding: 10px;
     margin-top: 10px;
     background-color: #444;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
+    text-align: center;
 }
 
 .view-more-btn:hover {
