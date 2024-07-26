@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for, flash
+from flask import Flask, jsonify, request, render_template, redirect, url_for, flash, send_file
 import google.generativeai as genai
 import os
 import subprocess
@@ -671,13 +671,11 @@ def recommendation():
 
     return render_template('recommendation.html', video_search_data=video_search_data, image_search_data=image_search_data)
 
-
-
     
 @app.route('/web_search_component')
 def web_sources():
 
-    url = 'https://youtu.be/43d2LhXCQvQ?si=xEvm-cUIZMohKrAQ'
+    url = 'https://www.youtube.com/watch?v=RHEmamg1mU4&ab_channel=TLDRNewsGlobal'
     title = get_video_title(url)
     prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
     response = model.generate_content([prompt])
@@ -1208,6 +1206,37 @@ def detail():
         return render_template('detail.html', detail=lines)
     else:
         return render_template('error.html', error=error)
+
+@app.route('/download')
+def download():
+    return render_template('download.html')
+
+@app.route('/download_video', methods=['POST'])
+def download_video():
+    video_url = request.form['video_url']
+    result = subprocess.run(['node', 'download_video.js', video_url], capture_output=True, text=True)
+    if result.returncode == 0:
+        return send_file(result.stdout.strip(), as_attachment=True)
+    else:
+        return jsonify({'error': result.stderr.strip()}), 400
+
+@app.route('/download_audio', methods=['POST'])
+def download_audio():
+    video_url = request.form['video_url']
+    result = subprocess.run(['node', 'download_audio.js', video_url], capture_output=True, text=True)
+    if result.returncode == 0:
+        return send_file(result.stdout.strip(), as_attachment=True)
+    else:
+        return jsonify({'error': result.stderr.strip()}), 400
+
+@app.route('/get_video_details', methods=['POST'])
+def get_video_details():
+    video_url = request.form['video_url']
+    result = subprocess.run(['node', 'get_video_details.js', video_url], capture_output=True, text=True)
+    if result.returncode == 0:
+        return jsonify({'details': result.stdout.strip()})
+    else:
+        return jsonify({'error': result.stderr.strip()}), 400
 
 
 #This is where the app starts
