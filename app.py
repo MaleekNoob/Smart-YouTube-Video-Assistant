@@ -1239,6 +1239,53 @@ def get_video_details():
         return jsonify({'error': result.stderr.strip()}), 400
 
 
+@app.route('/response')
+def response():
+
+    url = 'https://www.youtube.com/watch?v=RHEmamg1mU4&ab_channel=TLDRNewsGlobal'
+    title = get_video_title(url)
+    prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
+    response = model.generate_content([prompt])
+    search_query = response.text
+
+    print("Search Query: ", search_query)
+
+    # search_query += ' -site:youtube.com'
+
+    results = google_search(search_query, api_key, cse_id, num=4)
+
+    print("Results: ", results)
+
+    search_data = []
+
+    for item in results.get('items', []):
+        title = item.get('title', 'No title')
+        title = modify_string(title)
+        snippet = item.get('snippet', 'No snippet')
+        link = item.get('link', 'No link')
+    
+        # Extract the date from the snippet
+        date = extract_date(snippet)
+        publisher = extract_publisher(link)
+        
+        print('Sources from the web:')
+        print(f"Title: {title}")
+        print(f"Link: {link}")
+        print(f"Date: {date}")
+        print(f"Publisher: {publisher}")
+        print('-' * 80)
+
+        search_data.append({
+            'title': title,
+            'publisher': publisher,
+            'date': date,
+            'url': link
+        })
+
+
+    return render_template('response.html', search_data=search_data)
+
+
 #This is where the app starts
 if __name__ == '__main__':
     app.run(debug=True)
