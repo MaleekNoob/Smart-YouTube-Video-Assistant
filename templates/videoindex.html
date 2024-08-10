@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Summarize Video to Video</h2>
+    <form method="POST" action="{{ url_for('videosummarize') }}">
+        <div class="mb-3">
+            <label for="youtube-url" class="form-label">URL of Video</label>
+            <textarea class="form-control" name="youtube-url" rows="1" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="summary_size" class="form-label">Summary Size (in words)</label>
+            <input type="number" class="form-control" name="summary_size" min="1" max="500" required>
+        </div>
+        <div class="mb-3">
+            <label for="language" class="form-label">Language of Summary </label>
+             <select id="languages" class="form-select form-select-sm" name="language">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="chinese">Chinese</option>
+                <option value="arabic">Arabic</option>
+                <option value="portuguese">Portuguese</option>
+                <option value="bengali">Bengali</option>
+                <option value="russian">Russian</option>
+                <option value="japanese">Japanese</option>
+                <option value="german">German</option>
+                <option value="korean">Korean</option>
+                <option value="french">French</option>
+                <option value="turkish">Turkish</option>
+                <option value="italian">Italian</option>
+                <option value="polish">Polish</option>
+                <option value="ukrainian">Ukrainian</option>
+                <option value="dutch">Dutch</option>
+                <option value="romanian">Romanian</option>
+                <option value="greek">Greek</option>
+                <option value="hungarian">Hungarian</option>
+                <option value="swedish">Swedish</option>
+                <option value="czech">Czech</option>
+                <option value="hebrew">Hebrew</option>
+                <option value="danish">Danish</option>
+                <option value="finnish">Finnish</option>
+                <option value="norwegian">Norwegian</option>
+                <option value="malay">Malay</option>
+    </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Summarize</button>
+    </form>
+</div>
+{% endblock %}

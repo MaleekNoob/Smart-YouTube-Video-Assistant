@@ -1,0 +1,241 @@
+
+.optionsNav{
+    margin-left: 75px;
+    display:inline;
+    color:rgb(49, 243, 49);
+    font-weight: normal;
+    font-family: "Raleway", sans-serif;
+    font-size: 26px;
+}
+
+ellipse{
+    /* Ellipse 137 */
+
+position: absolute;
+width: 545.01px;
+height: 481.71px;
+left: 1065.05px;
+top: -116.77px;
+
+background: #6DFD49;
+filter: blur(334.688px);
+
+}
+
+body{
+    background-color: #000000;
+    overflow-x: hidden; 
+}
+
+.prompt{
+
+position: absolute;
+width: 65vw;
+height: 85vh;
+left:18vw;
+top: 140%;
+
+background: #262627;
+border-radius: 29.75px;
+
+}
+
+.app-name {
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    font-size: 220%;
+    font-weight: bold;
+    color: #40ff00;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.welcome {
+    text-align: center;
+    position: relative;
+    color:white;
+    margin-top: 1%;
+    font-weight: bold;
+    font-size: 220%;
+}
+
+.YouTube-url-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.youtube-icon {
+    position: absolute;
+    pointer-events: none; /* Ensures the icon does not block input interactions */
+    margin-left: 21%;
+    margin-top: 2%;
+}
+
+#youtube-url{
+    margin-left: 20%;
+    margin-top:2%;
+    margin-right: 25%;
+    width:60%;
+    height:10%;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding-left: 60px; /* Adjust this value to create space for the icon */
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+::placeholder {
+    text-align: left; 
+    font-size: large;
+    font-weight: lighter;
+    padding-left: 0px;
+}
+
+.promptSuggest{
+    position: relative;
+    margin-top: 2%;
+    margin-left: 6%;
+    width: 25%;
+    height: 30%;
+    display: inline-flex;
+    background: #656161;
+    border-radius: 18.5938px;
+    padding: 4%;
+    overflow:hidden; 
+    vertical-align:top;
+}
+
+.promptSuggestionText {
+    font-family: "Raleway", sans-serif;
+    text-align: left; 
+    color:white;
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: -10%;
+}
+
+.promptSuggest:hover{
+    background: #46633e;
+    color:black;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition properties for background and color */
+}
+
+.options{
+    color:white;
+    margin-top: 5%;
+    margin-left: 9%;
+}
+
+.option{
+    margin-right:8%;
+    text-align: center;
+    display:inline;
+    font-size: larger;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 1%;
+}
+
+.option:hover {
+    color: #8ffc6b;
+    transition: background 0.1s ease-in-out, color 0.3s ease-in-out; /* Add transition properties for background and color */
+}
+
+.machine-learning-icon {
+    position: absolute;
+    pointer-events: none; /* Ensures the icon does not block input interactions */
+    margin-left: 6.1%;
+    margin-top: -5.8%;
+}
+
+#prompttext {
+    font-family: "Raleway", sans-serif;
+    text-align: left; 
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: lighter;
+    padding-left: 75px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 75px;
+}
+
+body {
+    position: relative;
+    background-color: #000000; /* Black background */
+    margin: 0;
+    padding: 0; /* Prevent scrollbars from appearing */
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(109, 253, 73, 0.7); /* Green color with opacity */
+    filter: blur(100px); /* Blur effect */
+    border-radius: 50%; /* Circular shape */
+}
+
+body::before {
+    top: 100px; /* Position slightly out of the top left corner */
+    left: -100px; /* Position slightly out of the top left corner */
+}
+
+body::after {
+    top: 100px; /* Position slightly out of the top right corner */
+    right: -100px; /* Position slightly out of the top right corner */
+}
+
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{ 
+    background: none;
+}
+
+::-webkit-scrollbar-thumb{ 
+    background: linear-gradient(#091b0ee8, #14ac41);
+    border-radius: 10px;
+}
+
+/* ///////// */
+
+
+/* Button on top of the Input */
+.wrapper {
+    max-width: 100%;
+    position: relative;
+}
+
+.wrapper input {
+
+    margin-left: 5%;
+    margin-top:2%;
+    /* Rectangle 367 */
+    margin-right: 25%;
+    width:90%;
+    height:10%;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 45px;
+    padding: 2%;  
+}
+
+.wrapper button {
+    
+    background: rgb(141, 140, 140);
+    border-radius: 50%;
+    height: 50%;
+    position: absolute;
+    top: 35%;
+    right: 0;
+    transform: translateX(-150%);
+}
+
+html body {
+    background-color: #000000;
+}

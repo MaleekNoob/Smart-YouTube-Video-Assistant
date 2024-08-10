@@ -1,0 +1,36 @@
+html {
+  font-size: 18px;
+  
+}
+body {
+  margin: 0;
+  line-height: normal;
+  background-color: var(--color-black);
+}
+
+:root {
+  /* fonts */
+  --font-podkova: Podkova;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans";
+  --font-philosopher: Philosopher;
+  --font-play: Play;
+
+  /* font sizes */
+  --font-size-4xl-8: 1.322rem;
+  --font-size-mid-8: 0.989rem;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-lawngreen: #6dfd49;
+  --color-gainsboro: #d9d9d9;
+  --color-dimgray: #656161;
+  --color-gray: #262627;
+  --color-darkslategray: #434343;
+
+  /* Border radiuses */
+  --br-lg-6: 18.6px;
+  --br-3xl-3: 22.3px;
+  --br-10xl-7: 29.7px;
+  --br-4xl-6: 23.6px;
+}

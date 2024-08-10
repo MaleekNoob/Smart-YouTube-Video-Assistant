@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Summarized Text</h2>
+    
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Summary</h5>
+            <p class="card-text">{{ summary }}</p>
+        </div>
+    </div>
+    <a href="{{ url_for('videoindex') }}" class="btn btn-secondary mt-3">Summarize Another Text</a>
+</div>
+{% endblock %}

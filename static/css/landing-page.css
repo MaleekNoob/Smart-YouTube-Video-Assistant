@@ -1,0 +1,111 @@
+
+.landing-page-item {
+  position: absolute;
+  left: -3rem;
+  top: -1rem;
+  filter: blur(80.16px);
+  border-radius: 80%;
+  background-color: var(--color-lawngreen);
+  padding: 5rem;
+  width: 10px;
+
+}
+.transform-your {
+  color: var(--color-white);
+}
+.youtube {
+  color:  var(--color-lawngreen);
+}
+.text-end {
+  padding-right: 80px;
+}
+
+.try_btn.btn-outline-success {
+  border-color: var(--color-lawngreen);
+  color: var(--color-lawngreen);
+  transition: all 0.3s ease-in-out;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+.try_btn.btn-outline-success:hover {
+  background-color: var(--color-lawngreen);
+  color: white;
+  border-color: var(--color-lawngreen);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+.try_btn.btn-outline-success:active {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+.try_btn.btn-outline-success:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 105, 26, 0.5);
+}
+
+.col {
+  margin-left: 2%;
+  z-index: 0;
+}
+.landing {
+  position:relative;
+  overflow: hidden;
+  text-align: left;
+  font-size: 1.733rem;
+  color: var(--color-white);
+  font-family: var(--font-podkova);
+  background-color: var(--color-black);
+  padding: 15%;
+}
+.inform {
+  position:relative;
+  overflow: hidden;
+  text-align: left;
+  font-size: 1.733rem;
+  color: var(--color-white);
+  font-family: var(--font-podkova);
+  background-color: rgb(51, 51, 51);
+  padding: 10%;
+}
+.col-6 {
+  margin-left: 2%;
+}
+
+/* //help you text */
+.heading_text {
+  font-size:xx-large;
+  color: var(--color-lawngreen);
+}
+.contact_btn.btn-outline-success {
+  border-color: var(--color-lawngreen);
+  color: var(--color-lawngreen);
+  transition: all 0.3s ease-in-out;
+}
+.contact_btn.btn-outline-success:hover {
+  background-color: var(--color-lawngreen);
+  color: white;
+  border-color: var(--color-lawngreen);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+.contact_btn.btn-outline-success:active {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+.robot-removebg-preview-1-icon {
+  position: absolute;
+  top: 15.233rem;
+  left: 0rem;
+  width: 49.678rem;
+  height: 16.906rem;
+  object-fit: cover;
+}
+
+
+
+
+html body {
+  background-color: rgb(255, 255, 255);
+  
+}

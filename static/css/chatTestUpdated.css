@@ -1,0 +1,500 @@
+body {
+    position: relative;
+    overflow-x: hidden; 
+    background-color: #000000; /* Black background */
+    margin: 0;
+    padding: 0; /* Prevent scrollbars from appearing */
+    font-family: 'Plus Jakarta Sans';font-size: 22px;   
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background-color: rgba(109, 253, 73, 0.7); /* Green color with opacity */
+    filter: blur(150px); /* Blur effect */
+    border-radius: 50%; /* Circular shape */
+}
+
+body::before {
+    top: 0px; /* Position slightly out of the top left corner */
+    left: -100px; /* Position slightly out of the top left corner */
+}
+
+body::after {
+    top: 0px; /* Position slightly out of the top right corner */
+    right: -100px; /* Position slightly out of the top right corner */
+}
+nav{
+    margin-top: 1%;
+    width: 100%;
+    height:10vh;
+    display: flex;
+}
+#openNav {
+    cursor: pointer;
+    border: 0px solid #3498db;
+    background-color: transparent;
+    margin-top: 1%;
+    font-size:3vw;
+    height: 50px;
+    width: 11vw;
+    color: #ffffff;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+#welcome {
+    margin-left: 5%;
+    color: #6DFD49;
+    font-size: 40px;
+    display: inline;
+    vertical-align: center  ;
+    width: 100%;
+}
+
+#name{
+    color: #ffffff;
+    font-size: 2.5vw;
+    display: inline;
+    vertical-align: center  ;
+}
+
+.youtube-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%; /* Adjust as needed */
+    margin-left: 15%;
+}
+
+.youtube-icon {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    pointer-events: none; /* Makes sure the icon doesn't block input events */
+}
+
+#youtube-url {
+    /* Rectangle 367 */ 
+    width: 80%;
+    height: 60%;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    display: inline;
+    vertical-align: center;
+    padding-left: 80px; /* Adjust padding to make space for the logo */
+    background-image: url('youtube.png'); /* Update with your logo URL */
+    background-size: 20px 20px; /* Adjust the size of the logo */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Position the logo */
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+}
+
+#youtube-url::placeholder {
+    text-align: left; 
+    font-size: normal;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.chat{
+/* Rectangle 371 */
+
+position: absolute;
+width: 69vw;
+height: 80vh;
+left: 32px;
+
+background: #262627;
+border-radius: 15.7778px;
+margin-top: 2vh;
+align-items: center;
+
+
+}
+
+.related-web-sources-heading {
+    color: #ffffff;
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+}
+
+
+.flex-container{
+    display: flex;
+    width: 100%;
+    height: 85%;
+}
+.images-videos{
+/* Rectangle 372 */
+
+position: absolute;
+width: 24vw;
+height: 80vh;
+margin-left: 74%;
+margin-right: 5%;   
+background: #262627;
+border-radius: 37.7778px;
+display: inline-block;
+margin-top: 2vh;
+display: inline;
+
+}
+
+.something {
+    width:5%;
+    height: 6%;
+    margin-left: 1vw;
+    margin-top: 2.2vh;
+    display: inline;
+    
+    margin-right: 5%;
+    overflow: hidden;
+}
+
+.outputPanel{
+    width:100%;
+    height: 100%;
+    display: inline;
+    padding-left: 4%;
+    padding-right: 4%;
+    overflow: auto; /* Enable scrolling if content overflows */
+    font-size:medium
+}
+
+
+.prompttext{
+    margin-left: 9%;
+    
+    width:15%;
+    height:10%;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+}
+.prompttext::placeholder {
+    text-align: center; 
+    font-size: large;
+    font-weight: bold;
+ }
+
+
+ 
+/* ///////// */
+
+
+/* Button on top of the Input */
+.wrapper {
+    /* width: 400px; */
+    max-width: 100%;
+    position: relative;
+}
+
+.wrapper input {
+
+    margin-left: 5%;
+    margin-top:2%;
+    /* Rectangle 367 */
+    margin-right: 25%;
+    width:90%;
+    height:20%;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 18.5938px; 
+    padding: 1.3%;
+}
+
+.wrapper button {
+    
+    background: rgb(141, 140, 140);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: 50%;
+    
+    position: absolute;
+    top: 40%;
+    right: 0;
+    transform: translateX(-180%);
+}
+
+.chat img {
+    width: 30%; /* Set the width you want */
+    height: 20%; /* Set the height you want */
+    /* padding-top: 2%; */
+    margin-left: 8%;
+    cursor: pointer;
+}
+/* Hidden modal for enlarged image */
+/* Modal container */
+/* Modal container */
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position for full-screen modal */
+    z-index: 99999; /* High z-index to overlay other content */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: auto; /* Enable scrolling if content overflows */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay with opacity */
+}
+/* Modal content (the image) */
+.modal-content {
+    display: block;
+    min-width: 854px; /* Minimum width of the content block */
+    min-height: 480px; /* Minimum height of the content block */
+
+    top: 50%; /* Center vertically */
+    left: 45%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to be exact center */
+    object-fit: CONTAIN; /* Scale the content to fit the container */
+    background-color: rgba(185, 11, 11, 0.8); /* Semi-transparent black background */
+    border: none; /* Ensure no border around the content */
+    box-shadow: salmon; /* Ensure no shadow around the content */
+}
+
+.view-more-images-btn:hover, .view-more-videos-btn:hover {
+    background: #46633e;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition properties for background and color */
+}
+
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #c01111;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+html body {
+    background-color: #000000;
+}
+
+
+.loading {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    align-content: center;
+    visibility: hidden;
+  }
+  
+  .loading__dot {
+    animation: dot ease-in-out 1s infinite;
+    background-color: rgb(247, 247, 247);
+    display: inline-block;
+    height: 6px;
+    margin: 2px;
+    width: 6px;
+    border-radius: 100%;
+  }
+  
+  .loading__dot:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading__dot:nth-of-type(3) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes dot {
+    0% { background-color: grey; transform: scale(1); }
+    50% { background-color: #00ff15; transform: scale(1.3); }
+    100% { background-color: grey; transform: scale(1); }
+  }
+
+
+.loading.display{
+    visibility:visible;
+}
+@keyframes spin{
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.side-panel {
+    width: 20%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 74%;
+    margin-top: 1%;
+    margin-right: 1%;
+    color: #ffffff;
+    max-height: 600px;  /* Adjust the height based on your design needs */
+    overflow-y: auto;  /* Enables vertical scrolling */
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+}
+
+
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{ 
+    background: none;
+}
+
+::-webkit-scrollbar-thumb{ 
+    background: linear-gradient(#091b0ee8, #14ac41);
+    border-radius: 10px;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.videos-container {
+    /* display: flex; */
+    flex-wrap: wrap;
+}
+
+.image-item {
+    width: 100px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    cursor: pointer;
+    border-radius: 10px;
+    /* align-items: center; */
+}
+
+.video-item {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 5px;
+}
+
+.video-item img {
+    width: 50%;
+    border-radius: 15px;
+}
+
+.video-info {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.video-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.video-publisher, .video-views {
+    font-size: 11px;
+    color: #aaa;
+    font-weight: lighter;
+    line-height: 80%;
+}
+
+.view-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* .view-more-btn:hover {
+    background-color: #555;
+} */
+
+
+/* ////////////////////////////////////////
+*/
+.web-sources-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+
+.box {
+    width: 220px;
+    background-color: #333;
+    color: white;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    flex: 0 1 auto; 
+}
+
+.date {
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    font-size: 11px; 
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+}
+
+.title {
+    font-family: "Raleway", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.publisher {
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    margin-bottom: 5px;
+}

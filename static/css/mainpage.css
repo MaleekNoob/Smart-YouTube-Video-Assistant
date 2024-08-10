@@ -1,0 +1,509 @@
+.main-child {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  background-color: var(--color-black);
+  width: 79.333rem;
+  height: 47.767rem;
+}
+.main-item {
+  position: absolute;
+  top: -8.139rem;
+  left: -10.206rem;
+  filter: blur(520.63px);
+  border-radius: 50%;
+  background-color: var(--color-lawngreen);
+  width: 22.272rem;
+  height: 17.85rem;
+}
+.main-inner {
+  position: absolute;
+  top: -6.489rem;
+  left: 59.172rem;
+  filter: blur(669.38px);
+  border-radius: 50%;
+  background-color: var(--color-lawngreen);
+  width: 28.056rem;
+  height: 23.428rem;
+}
+.misc-child {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  box-shadow: 10.4px 12.6px 29.75px 2.97px rgba(112, 144, 176, 0.08);
+  border-radius: 22.31px;
+  background-color: var(--color-white);
+  width: 18.594rem;
+  height: 2.522rem;
+}
+.avatar-style-6 {
+  position: absolute;
+  top: 0.411rem;
+  left: 16.3rem;
+  width: 1.806rem;
+  height: 1.694rem;
+  object-fit: cover;
+}
+.info-outline-icon {
+  position: absolute;
+  top: 0.739rem;
+  left: 14.361rem;
+  width: 1.056rem;
+  height: 0.994rem;
+  overflow: hidden;
+}
+.moon-solid-1-icon {
+  position: absolute;
+  top: 0.867rem;
+  left: 12.689rem;
+  width: 0.794rem;
+  height: 0.744rem;
+  overflow: hidden;
+}
+.notifications-none-icon {
+  position: absolute;
+  top: 0.739rem;
+  left: 10.75rem;
+  width: 1.056rem;
+  height: 0.994rem;
+  overflow: hidden;
+}
+.background-child {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  border-radius: 36.44px;
+  background-color: #f4f7fe;
+}
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+}
+.search {
+  position: absolute;
+  top: calc(50% - 7.5px);
+  left: 0rem;
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-weight: 500;
+}
+.text {
+  position: absolute;
+  top: calc(50% - 7.85px);
+  left: 1.733rem;
+  width: 1.889rem;
+  height: 0.833rem;
+}
+.search-icon {
+  position: absolute;
+  top: calc(50% - 4.05px);
+  left: 0.828rem;
+  width: 0.456rem;
+  height: 0.456rem;
+}
+.large-input {
+  position: absolute;
+  top: 0.411rem;
+  left: 0.439rem;
+  width: 9.428rem;
+  height: 1.694rem;
+}
+.misc {
+  position: absolute;
+  top: 0rem;
+  left: 46.156rem;
+  width: 18.594rem;
+  height: 2.522rem;
+}
+.gen-ai {
+  position: absolute;
+  top: 1.033rem;
+  left: 0rem;
+  font-size: var(--font-size-4xl-8);
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-weight: 500;
+  color: var(--color-lawngreen);
+}
+.menu {
+  position: absolute;
+  top: 3.556rem;
+  left: 9.833rem;
+  width: 64.75rem;
+  height: 2.522rem;
+  font-size: 0.578rem;
+  color: #718096;
+}
+.rectangle-div {
+  position: absolute;
+  top: 8.139rem;
+  left: 13.594rem;
+  border-radius: 29.75px;
+  background-color: var(--color-gray);
+  width: 52.267rem;
+  height: 35.783rem;
+}
+.blank-line {
+  margin: 0;
+}
+.how-can-i-container1 {
+  width: 100%;
+}
+.how-can-i-container {
+  position: absolute;
+  top: 12.811rem;
+  left: 21.406rem;
+  font-size: 1.983rem;
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  display: flex;
+  font-family: var(--font-play);
+  color: #fbfbff;
+  text-align: center;
+  align-items: center;
+  width: 35.372rem;
+}
+.main-child1 {
+  position: absolute;
+  top: 21.033rem;
+  left: 17.228rem;
+  border-radius: 18.59px;
+  background-color: var(--color-dimgray);
+  width: 13.056rem;
+  height: 9.667rem;
+}
+.main-child2 {
+  position: absolute;
+  top: 21.033rem;
+  left: 47.889rem;
+  border-radius: 18.59px;
+  background-color: var(--color-dimgray);
+  width: 13.056rem;
+  height: 9.667rem;
+}
+.main-child3 {
+  position: absolute;
+  top: 21.033rem;
+  left: 32.561rem;
+  border-radius: 18.59px;
+  background-color: var(--color-dimgray);
+  width: 13.056rem;
+  height: 9.667rem;
+}
+.summarize-video-to-container {
+  position: absolute;
+  top: 22.439rem;
+  left: 34.128rem;
+  font-size: var(--font-size-4xl-8);
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-family: var(--font-podkova);
+}
+.get-useful-insights-container {
+  position: absolute;
+  top: 22.439rem;
+  left: 49.044rem;
+  font-size: var(--font-size-4xl-8);
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-family: var(--font-podkova);
+}
+/* .type-your-prompt {
+  position: absolute;
+  top: 39.172rem;
+  left: 19.294rem;
+  letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-family: var(--font-philosopher);
+  } */
+  .gen-ai1 {
+    position: absolute;
+    top: 10.783rem;
+    left: 36.856rem;
+    font-size: var(--font-size-4xl-8);
+    letter-spacing: -0.02em;
+  line-height: 0.827rem;
+  font-weight: 500;
+  color: var(--color-lawngreen);
+  display: inline-block;
+  width: 4.506rem;
+  height: 1.117rem;
+}
+/* .main-child5 {
+  position: absolute;
+  top: 16.983rem;
+  left: 24.422rem;
+  box-shadow: 0px 3px 2.97px rgba(0, 0, 0, 0.25);
+  border-radius: 18.59px;
+  background-color: var(--color-gainsboro);
+  width: 30.617rem;
+  height: 2.317rem;
+  } */
+  /* .youtube-url {
+    position:absolute ;
+    top: 17.728rem;
+    left: 35.206rem;
+    letter-spacing: -0.02em;
+    line-height: 0.827rem;
+    font-weight: 500;
+    } */
+    .summarize {
+      position: absolute;
+      top: 35.45rem;
+      left: 19.294rem;
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-weight: 500;
+      color: var(--color-lawngreen);
+    }
+    .qa {
+      position: absolute;
+      top: 35.45rem;
+      left: 28.017rem;
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+    .proscons {
+      position: absolute;
+      top: 35.45rem;
+      left: 34.256rem;
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+    .compare {
+      position: absolute;
+      top: 35.45rem;
+      left: 42.228rem;
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+    .opinionsarguments {
+      position: absolute;
+      top: 35.45rem;
+      left: 50.617rem;
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+    .summarize-video-to-container1 {
+      position: absolute;
+      top: 22.439rem;
+      left: 18.839rem;
+      font-size: var(--font-size-4xl-8);
+      letter-spacing: -0.02em;
+      line-height: 0.827rem;
+      font-family: var(--font-podkova);
+    }
+    .main {
+      width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 47.767rem;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-mid-8);
+  color: var(--color-black);
+  font-family: var(--font-plus-jakarta-sans);
+}
+
+
+
+/* Styles for the parent div */
+.main-child5 {
+  position: absolute;
+  top: 16.983rem;
+  left: 24.422rem;
+  box-shadow: 0px 3px 2.97px rgba(0, 0, 0, 0.25);
+  border-radius: 18.59px;
+  background-color: var(--color-gainsboro);
+  width: 30.617rem;
+  height: 2.317rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Styles for the input field */
+#youtube-link {
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 18.59px;
+  font-size: 0.6rem;
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Placeholder styling */
+#youtube-link::placeholder {
+  color: #888;
+  text-align: center;
+}
+
+/* Styles for the textarea */
+textarea.form-control {
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 18.59px;
+  font-size: 0.6rem;
+  /* background: transparent; */
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+  resize: none; /* Prevents resizing by the user */
+}
+
+/* Placeholder styling */
+textarea.form-control::placeholder {
+  color: #888;
+  text-align: center;
+}
+
+
+/* //////////////////////////////////////////////////////////////// */
+
+.main-child4 {
+  position: relative;
+  top: 37.889rem;
+  left: 16.239rem;
+  border-radius: 30px;
+  background-color: var(--color-gainsboro);
+  width: 46.978rem;
+  height: 3.428rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+    
+#prompt-input {
+  width: calc(100% - 40px);
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      background: transparent;
+      outline: none;
+      box-sizing: border-box;
+      text-align: left;
+      padding-left: 40px;
+    }
+    
+    /* Placeholder styling */
+    #prompt-input::placeholder {
+      color: #888;
+      text-align:left;
+      padding-left: 20px;
+    }
+    
+    .rightward-up-arrow {
+      transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+      max-width: 100%;
+      height: 30px;
+      border: none;
+      object-fit:scale-down;
+    }
+    
+    .arr-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Hover effect */
+    .arr-btn img:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+      box-shadow: 0 4px 8px var(--color-lawngreen);
+    }
+    
+    /* Additional focus effect for accessibility */
+    .arr-btn img:focus {
+      outline: 2px solid var(--color-lawngreen);
+      outline-offset: 2px;
+      
+    }
+    
+    .artificial-intelligence-icon {
+      position: absolute;
+      top: 38.333rem;
+      left: 16.111rem;
+      width: 3.167rem;
+      height: 2.278rem;
+      object-fit:scale-down;
+      padding-left: 5px;
+    }
+
+
+    /* //////////////////////////////////////////////////////////////// */
+
+    /* Base styles for the button */
+.btn {
+  position: absolute;
+  top: 38.333rem;
+  left: 54.111rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem; /* Adjust padding as needed */
+  font-size: 1rem; /* Adjust font size as needed */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 18.59px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Primary button styles */
+.btn-primary {
+  background-color: var(--primary-color, #007bff); /* Primary background color */
+  color: white; /* Text color */
+}
+
+/* Hover and focus styles */
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-color-dark, #0056b3); /* Darker shade for hover/focus */
+  color: white; /* Ensure text color remains white */
+  outline: none; /* Remove default outline */
+}
+
+/* Active styles */
+.btn-primary:active {
+  background-color: var(--primary-color-darker, #004085); /* Even darker shade for active state */
+  color: white; /* Ensure text color remains white */
+  outline: none; /* Remove default outline */
+}
+
+/* Disabled state */
+.btn-primary:disabled {
+  background-color: var(--primary-color-light, #6c757d); /* Lighter shade for disabled state */
+  color: #ccc; /* Gray text color */
+  cursor: not-allowed; /* Not-allowed cursor */
+  opacity: 0.65; /* Reduced opacity */
+}

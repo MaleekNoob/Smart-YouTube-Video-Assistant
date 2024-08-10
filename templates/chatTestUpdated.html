@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link href="chatTestUpdated.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatTestUpdated.css') }}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    
+<link href='https://fonts.googleapis.com/css?family=Plus Jakarta Sans' rel='stylesheet'>
+</head>
+<body>
+    <nav>
+        
+        <div id="welcome"></div></div>
+
+        <div class="youtube-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="42px" height="42px" class="youtube-icon">
+            <path fill="#FF3D00" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"/>
+            <path fill="#FFF" d="M20 31L20 17 32 24z"/>
+          </svg>
+          <input id="youtube-url" placeholder="Enter your Youtube Url"/>
+        </div>
+        
+    </nav>
+    <div class="chat">
+        <div class="flex-container">
+            <div class="web-section">
+              {% for data in search_data %}
+              <div class="box" onclick="window.location.href='{{ data.url }}'">
+                  <h2 class="title">{{ data.title }}</h2>
+                  <p class="publisher">{{ data.publisher }}</p>
+                  <span class="date">{{ data.date }}</span>
+              </div>
+              {% endfor %}
+            </div>
+            
+            <!-- <img class="something" src="/aipng.png" alt="" width="30" height="24" > -->
+            <div class="outputPanel">
+              <div class="section">
+                  <h2 class='related-web-sources-heading'>Related Web Sources</h2>
+                  <div class="web-sources-container" id="web-sources-container">
+                      
+                  </div>
+                  <div></div>
+                  <!-- <button class="view-more-btn view-more-web-sources-btn">+ View More</button> -->
+              </div>
+
+              <div class="mt-5" id="contentContainer" style="color: rgb(197, 196, 196)">
+                    <!-- New content will be appended here -->
+                  </div>
+                  <div id="myModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="img01">
+                </div>
+            </div>
+
+        </div>
+
+        <form id="prompt-form">
+            <div class="wrapper">
+              <input class="prompttext" placeholder="Type Your Prompt"/>
+              <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M5 12l14 0"></path>
+                    <path d="M13 18l6 -6"></path>
+                    <path d="M13 6l6 6"></path>
+                </svg>
+              </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- <div class="images-videos"> -->
+    <div class="side-panel">
+        <div class="section">
+            <h2>Images</h2>
+            <div class="images-container" id="images-container">
+                {% for image in image_search_data %}
+                <img src="{{ image.url }}" alt="Related Image" class="image-item">
+                {% endfor %}
+            </div>
+            <button class="view-more-btn view-more-images-btn">+ View More</button>
+        </div>
+        <div class="section">
+            <h2>Related Videos</h2>
+            <div class="videos-container" id="videos-container">
+                {% for video in video_search_data %}
+                <div class="video-item" onclick="window.open('{{ video.url }}', '_blank')">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                    <div class="video-info">
+                        <p class="video-title">{{ video.title }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="view-more-btn view-more-videos-btn">+ View More</button>
+        </div>
+        
+    </div>
+    <!-- </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      
+      document.getElementById('prompt-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const youtubeUrl = document.getElementById('youtube-url').value;
+        const promptText = document.querySelector('.prompttext').value;
+        
+        
+        
+        const contentContainer = document.getElementById('contentContainer');
+        let loading = document.createElement('div');
+        loading.innerHTML = `<div id="loading">
+          <span class="loading__dot"></span>
+          <span class="loading__dot"></span>
+          <span class="loading__dot"></span>
+          </div>`;
+          loading.id = 'loading';
+          loading.classList.add('display');
+          contentContainer.appendChild(loading);
+          
+          const response = await fetch('/generic', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              yturl: youtubeUrl,
+              prompt: promptText
+            })
+          });
+          
+          const result = await response.json();
+          loading.remove();
+          
+          displayContent(result);  // Do something with the result
+        });
+        
+        // Retrieve the result from sessionStorage
+        const result = JSON.parse(sessionStorage.getItem('result'));
+        
+        // Display the content
+        displayContent(result);
+        
+        // Append new content to the contentContainer div
+        function displayContent(data) {
+          const contentContainer = document.getElementById('contentContainer');
+          
+          const contentBlock = document.createElement('div');
+          contentBlock.className = 'content-block mb-3 p-3 typewriter';
+          
+          if (data.error) {
+            contentBlock.innerHTML = `
+            <h2 class="text-danger">Error</h2>
+            <p class="typing-animation">${data.error}</p>
+            `;
+          } else {
+            contentBlock.innerHTML = `
+            <p class="typewriter">${data}</p>
+            `;
+          }
+
+
+          contentContainer.appendChild(contentBlock);
+          
+          
+        }
+
+        function typewriterEffect(element, text, delay = 20) {
+          let index = 0;
+          function type() {
+              if (index < text.length) {
+                  if (text[index] === '<') {
+                      let endIndex = text.indexOf('>', index) + 1;
+                      element.innerHTML += text.substring(index, endIndex);
+                      index = endIndex;
+                  } else {
+                      element.innerHTML += text[index];
+                      index++;
+                  }
+                  setTimeout(type, delay);
+              }
+          }
+          type();
+          }
+        //// new content
+        function openModal(src) {
+          var modal = document.getElementById("myModal");
+          var modalImg = document.getElementById("img01");
+          modal.style.display = "block";
+          modalImg.src = src;
+        }
+        
+        function closeModal() {
+          var modal = document.getElementById("myModal");
+          modal.style.display = "none";
+        }
+        
+        
+      </script>
+      <script src="{{ url_for('static', filename='js/recommendation.js') }}"></script>
+</body>
+</html>

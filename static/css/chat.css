@@ -1,0 +1,345 @@
+.chat-child {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  background-color: var(--color-black);
+  width: 100.739rem;
+  height: 60.656rem;
+}
+
+/* 
+.chat-item {
+  position: absolute;
+  top: 2.811rem;
+  left: 53.25rem;
+  box-shadow: 0px 3.8px 3.78px rgba(0, 0, 0, 0.25);
+  border-radius: 23.61px;
+  background-color: var(--color-gainsboro);
+  width: 21.317rem;
+  height: 2.933rem;
+} */
+.gen-ai2 {
+  position: absolute;
+  top: 3.967rem;
+  left: 23.628rem;
+  letter-spacing: -0.02em;
+  line-height: 1.049rem;
+  font-weight: 500;
+  color: var(--color-lawngreen);
+  display: inline-block;
+  width: 5.717rem;
+  height: 1.417rem;
+}
+/* .youtube-url1 {
+  position: absolute;
+  top: 3.594rem;
+  left: 61.222rem;
+  font-size: 0.828rem;
+  letter-spacing: -0.02em;
+  line-height: 1.049rem;
+  font-weight: 500;
+  display: inline-block;
+  width: 5.578rem;
+  height: 1.072rem;
+} */
+.chat-inner {
+  position: absolute;
+  top: -10.339rem;
+  left: -12.961rem;
+  filter: blur(661.11px);
+  border-radius: 50%;
+  background-color: var(--color-lawngreen);
+  width: 28.283rem;
+  height: 22.667rem;
+}
+.chat-child1 {
+  position: absolute;
+  top: 8.017rem;
+  left: 20.2rem;
+  border-radius: 37.78px;
+  background-color: var(--color-gray);
+  width: 56.472rem;
+  height: 41.228rem;
+  padding: 5rem; /* Add padding to give space around the text */
+  overflow: auto; /* Enable scrolling if content overflows */
+  box-sizing: border-box; /* Include padding in the width and height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  /* justify-content: center; */
+}
+
+/* Styling for the card title */
+.chat-child1 .card-title {
+  font-size: 1.5rem; /* Adjust font size as needed */
+  font-weight: bold;
+  margin-bottom: 1rem; /* Space below the title */
+  text-align: center; /* Center the title text */
+  word-wrap: break-word; /* Break long words to fit in the container */
+  color: aliceblue;
+}
+
+/* Styling for the card text */
+.chat-child1 .card-text {
+  font-size: 1rem; /* Adjust font size as needed */
+  text-align: justify; /* Justify the text for clean alignment */
+  word-wrap: break-word; /* Ensure long words break and fit within the container */
+  overflow-wrap: break-word; /* Ensure proper text wrapping */
+  max-height: 100%; /* Ensure text doesn't exceed container height */
+  line-height: 1.5; /* Adjust line height for readability */
+  color: aliceblue;
+}
+
+/* .chat-child2 {
+  position: absolute;
+  top: 42.383rem;
+  left: 23.628rem;
+  border-radius: 23.61px;
+  background-color: var(--color-gainsboro);
+  width: 48.289rem;
+  height: 4.256rem;
+} */
+/* .new-prompt {
+  position: absolute;
+  top: 43.911rem;
+  left: 27.883rem;
+  font-size: 1.261rem;
+  letter-spacing: -0.02em;
+  line-height: 1.049rem;
+  font-family: var(--font-philosopher);
+  display: flex;
+  align-items: center;
+  width: 6.033rem;
+  height: 1.156rem;
+} */
+/* .rightward-up-arrow1 {
+  position: absolute;
+  top: 43.211rem;
+  left: 68.656rem;
+  width: 2.15rem;
+  height: 2.522rem;
+  object-fit: cover;
+}
+.artificial-intelligence-icon1 {
+  position: absolute;
+  top: 43.211rem;
+  left: 24.289rem;
+  width: 2.811rem;
+  height: 2.356rem;
+  object-fit: cover;
+} */
+.artificial-intelligence-icon1 {
+  position: absolute;
+  top: 43.183rem;
+  left: 23.628rem;
+  width: 3.167rem;
+  height: 2.278rem;
+  object-fit:scale-down;
+  padding-left: 5px;
+}
+.artificial-intelligence-icon2 {
+  position: absolute;
+  top: 12.189rem;
+  left: 24.911rem;
+  width: 3.472rem;
+  height: 2.972rem;
+  object-fit: cover;
+}
+.chat-child3 {
+  position: absolute;
+  top: 0rem;
+  left: 0.494rem;
+  filter: blur(22.31px);
+  background-color: var(--color-gray);
+  width: 18.922rem;
+  height: 51.511rem;
+}
+.chat-child4 {
+  position: absolute;
+  top: 4.211rem;
+  left: 18.711rem;
+  border-radius: 29.74px;
+  background-color: var(--color-gainsboro);
+  width: 0.167rem;
+  height: 43.211rem;
+}
+.chat-child5 {
+  position: absolute;
+  top: 3.594rem;
+  left: 18.55rem;
+  border-radius: 29.74px;
+  background-color: var(--color-darkslategray);
+  width: 0.539rem;
+  height: 6.611rem;
+}
+.chat-child6 {
+  position: absolute;
+  top: 37.756rem;
+  left: 2.189rem;
+  border-radius: 22.31px;
+  background-color: var(--color-darkslategray);
+  width: 15.2rem;
+  height: 10.206rem;
+}
+.chat-child7 {
+  position: absolute;
+  top: 26.317rem;
+  left: 2.189rem;
+  border-radius: 22.31px;
+  background-color: var(--color-darkslategray);
+  width: 15.2rem;
+  height: 10.206rem;
+}
+.chat-child8 {
+  position: absolute;
+  top: 14.872rem;
+  left: 2.189rem;
+  border-radius: 22.31px;
+  background-color: var(--color-darkslategray);
+  width: 15.2rem;
+  height: 10.206rem;
+}
+.chat-child9 {
+  position: absolute;
+  top: 3.428rem;
+  left: 2.189rem;
+  border-radius: 22.31px;
+  background-color: var(--color-darkslategray);
+  width: 15.2rem;
+  height: 10.206rem;
+}
+.chat-child10 {
+  position: absolute;
+  top: 12.189rem;
+  left: 74.483rem;
+  border-radius: 29.74px;
+  background-color: var(--color-gainsboro);
+  width: 0.167rem;
+  height: 27.967rem;
+}
+.chat-child11 {
+  position: absolute;
+  top: 11.567rem;
+  left: 74.317rem;
+  border-radius: 29.74px;
+  background-color: var(--color-darkslategray);
+  width: 0.539rem;
+  height: 6.611rem;
+}
+.chat {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 51.522rem;
+  overflow: hidden;
+  text-align: left;
+  font-size: 1.678rem;
+  color: var(--color-black);
+  font-family: var(--font-plus-jakarta-sans);
+}
+
+
+/* Styles for the parent div */
+.main-child5 {
+  position: absolute;
+  top: 2.811rem;
+  left: 53.25rem;
+  box-shadow: 0px 3.8px 3.78px rgba(0, 0, 0, 0.25);
+  border-radius: 23.61px;
+  background-color: var(--color-gainsboro);
+  width: 21.317rem;
+  height: 2.933rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Styles for the input field */
+#youtube-link {
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 18.59px;
+  font-size: 0.6rem;
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Placeholder styling */
+#youtube-link::placeholder {
+  color: #888;
+  text-align: center;
+}
+
+
+.chat-child2 {
+  position: relative;
+  top: 42.383rem;
+  left: 23.628rem;
+  border-radius: 30px;
+  background-color: var(--color-gainsboro);
+  width: 48.289rem;
+  height: 4.256rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+#prompt-input {
+  width: calc(100% - 40px);
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+  text-align: left;
+  padding-left: 60px;
+  
+}
+
+/* Placeholder styling */
+#prompt-input::placeholder {
+  color: #888;
+  text-align:left;
+  padding-left: 20px;
+}
+
+.rightward-up-arrow {
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+  height: 30px;
+  border: none;
+  object-fit:scale-down;
+}
+
+.arr-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect */
+.arr-btn img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+  box-shadow: 0 4px 8px var(--color-lawngreen);
+}
+
+/* Additional focus effect for accessibility */
+.arr-btn img:focus {
+  outline: 2px solid var(--color-lawngreen);
+  outline-offset: 2px;
+  
+}
