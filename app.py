@@ -146,8 +146,6 @@ def transcribe_chunks(chunk_filenames):
         full_transcription += result['text']
 
     return full_transcription
-
-
 # Function to delete audio chunks
 def delete_chunks(chunk_filenames):
     for chunk_filename in chunk_filenames:
@@ -186,7 +184,6 @@ def download_audio(video_link):
     except Exception as e:
         print(f'Error downloading audio: {e}')
         return None
-
 def transcribe_url(url):
     # Main script
     file_path = download_audio(url)
@@ -779,14 +776,13 @@ def generic():
                         continue
             except KeyError:
                 return render_template('error.html', error="Missing YouTube URL in the request.")
-            
 
             # Create HTML content directly
             html_content = """
             <h4>Key Points and Videos</h4>
             """
             for key, video in keyvideo.items():
-                
+
                 path = 'static/videos/' + video
 
                 html_content += f"""
@@ -795,7 +791,7 @@ def generic():
                 <br>
                 """
             # Convert the HTML content to a JSON response
-            return jsonify(html_content)
+            return jsonify(html_content) 
         
         elif "video" in category:
         # if 1==1:
@@ -932,14 +928,13 @@ def generic():
             html_content = """
             <h4>Key Points and Videos</h4>
             """
-            
+            # Add the video snippet
             html_content += f"""
-            <h6>{key}</h6>
-            <video src="{final_video_web_path}" controls class="video-class" width="100%" height="auto"></video>
+            <video src="static/videos/{final_video_path}.mp4" controls class="video-class" width="100%" height="auto"></video>
             <br>
             """
-            # Return the result as a JSON response
-            return jsonify(response_html)
+            # Convert the HTML content to a JSON response
+            return jsonify(html_content) 
         
 
         else:
@@ -961,6 +956,7 @@ def generic():
             error = str(e)
             return render_template('error.html', error=error)
         
+
 
 url = "https://www.youtube.com/watch?v=wIyHSOugGGw&ab_channel=CodeBootcamp"
 
@@ -1214,6 +1210,49 @@ def web_sources():
         return jsonify(search_data)
     except Exception as e:
         return jsonify({'error': str(e)})
+
+# @app.route('/web_search_component')
+# def web_sources():
+
+#     url = 'https://youtu.be/43d2LhXCQvQ?si=xEvm-cUIZMohKrAQ'
+#     title = get_video_title(url)
+#     prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
+#     response = model.generate_content([prompt])
+#     search_query = response.text
+
+#     print("Search Query: ", search_query)
+
+#     search_query += ' -site:youtube.com'
+
+#     results = google_search(search_query, api_key, cse_id, num=4)
+
+#     search_data = []
+
+#     for item in results.get('items', []):
+#         title = item.get('title', 'No title')
+#         title = modify_string(title)
+#         snippet = item.get('snippet', 'No snippet')
+#         link = item.get('link', 'No link')
+    
+#         # Extract the date from the snippet
+#         date = extract_date(snippet)
+#         publisher = extract_publisher(link)
+        
+#         # print(f"Title: {title}")
+#         # print(f"Link: {link}")
+#         # print(f"Date: {date}")
+#         # print(f"Publisher: {publisher}")
+#         # print('-' * 80)
+
+#         search_data.append({
+#             'title': title,
+#             'publisher': publisher,
+#             'date': date,
+#             'url': link
+#         })
+
+#     return jsonify(search_data)
+
 
 
 @app.route('/pros_cons', methods=['GET', 'POST'])
