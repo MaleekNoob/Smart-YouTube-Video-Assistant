@@ -928,14 +928,18 @@ def generic():
             final_video_web_path = os.path.relpath(final_video_path, start='static')
             print(final_video_web_path)
 
-            markdown_content = ""
-            markdown_content += "#### Key Points and Videos\n"
-            # markdown_content += f"###### {key}\n"
-            markdown_content += f'<video src="static/videos/{final_video_path}.mp4" controls class="video-class"></video>\n'
-            # Construct the result dictionary
-            response_html = markdown2.markdown(markdown_content)
+            # Create HTML content directly
+            html_content = """
+            <h4>Key Points and Videos</h4>
+            """
+            
+            html_content += f"""
+            <h6>{key}</h6>
+            <video src="{final_video_web_path}" controls class="video-class" width="100%" height="auto"></video>
+            <br>
+            """
             # Return the result as a JSON response
-            return jsonify(response_html)   
+            return jsonify(response_html)
         
 
         else:
