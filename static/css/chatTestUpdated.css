@@ -345,7 +345,7 @@ html body {
     margin-top: 1%;
     margin-right: 1%;
     color: #ffffff;
-    max-height: 600px;  /* Adjust the height based on your design needs */
+    max-height: 587px;  /* Adjust the height based on your design needs */
     overflow-y: auto;  /* Enables vertical scrolling */
     font-family: "Raleway", sans-serif;
     font-weight: lighter;
@@ -389,8 +389,8 @@ html body {
 }
 
 .image-item {
-    width: 100px; /* Set a fixed width */
-    height: 100px; /* Set a fixed height */
+    width: 120px; /* Set a fixed width */
+    height: 120px; /* Set a fixed height */
     cursor: pointer;
     border-radius: 10px;
     /* align-items: center; */

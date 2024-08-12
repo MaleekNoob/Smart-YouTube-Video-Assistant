@@ -4,14 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const videosContainer = document.getElementById('videos-container');
     const webSourcesContainer = document.getElementById('web-sources-container');
     responseTitle = document.getElementById('welcome')
+    YouTubeURLPlaceholder = document.getElementById('youtube-url')
 
     // Retrieve the YouTube URL from sessionStorage
     let searchQuery = JSON.parse(sessionStorage.getItem('url'));
+
     fetchImages(searchQuery);
+
     fetchVideos(searchQuery);
+
     fetchWebSources(searchQuery);
+    
     searchQuery = reduceText(searchQuery, 30)
     responseTitle.innerHTML = searchQuery
+    actualURL = sessionStorage.getItem('actual-url')
+    YouTubeURLPlaceholder.value = removeQuotes(actualURL)
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
@@ -42,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return text.substring(0, maxLength) + '...';
         }
         return text;
+    }
+
+    function removeQuotes(text) {
+        return text.replace(/['"]+/g, '');
     }
 
     document.querySelector('.view-more-images-btn').addEventListener('click', function() {
