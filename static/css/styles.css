@@ -1,0 +1,452 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    flex-shrink: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: none;
+    padding: 5px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.search-bar.visible {
+    display: inline-block;
+    width: 200px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.centered-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.heading {
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.action-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.view-research-btn {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.learn-about-safety {
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.centered-image {
+    margin-top: 40px;
+    max-width: 100%;
+    height: auto;
+}
+
+.quote {
+    margin-top: 80px;
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+}
+
+.quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-style: normal;
+}
+
+.focus-areas {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.focus-areas h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.focus-areas-text {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.focus-areas p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.audio-section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.audio-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.audio-text {
+    font-size: 1em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* New CSS for the added image grid section */
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.new-image-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.new-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s;
+}
+
+.new-image-card:hover img {
+    filter: brightness(70%);
+}
+
+.new-image-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.new-image-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    color: white;
+    font-size: 1em;
+    background: none; /* Remove background color */
+    padding: 5px;
+    border-radius: 4px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.new-image-card:hover .overlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Ensure .top-text visibility and styling */
+.top-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 0.8em;
+    background: none; /* Remove background color */
+    padding: 5px;
+    border-radius: 4px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.job-listing {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    background-color: #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.job-title {
+    font-size: 18px;
+}
+
+.job-title-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.department {
+    font-size: 14px; /* Decreased font size */
+    font-weight: lighter;
+    color: #bbb;
+    margin-left: 5px;
+}
+
+.location {
+    font-size: 14px; /* Decreased font size */
+    margin-right: 200px; /* Increased margin to add gap */
+}
+
+.apply-link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.apply-link:hover {
+    text-decoration: underline;
+}
+
+.job-listings-container {
+    width: 90%;
+    max-width: 100%;
+    margin: 40px auto 0; /* Added top margin for gap */
+    padding: 20px;
+}
+
+.content1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 60px; /* Adjust if needed */
+}
+
+.column1 {
+    background-color: #111; /* Light black or dark gray */
+    padding: 90px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%; /* Responsive width */
+    width: 800px; /* Optional: sets a default width */
+}
+
+.button1 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button1:hover {
+    background-color: #ddd;
+}
+
+/* Existing CSS styles */
+
+
+
+/* Add this CSS for footer styling */
+.footer {
+    display: flex;
+    justify-content: space-between; /* Ensures space between columns */
+    padding: 20px;
+    background-color: #000;
+    border-top: 1px solid #333;
+    flex-wrap: wrap; /* Allows wrapping if there is not enough space */
+}
+
+.column {
+    max-width: 200px;
+    margin-right: 20px; /* Space between columns */
+}
+
+.column:last-child {
+    margin-right: 0; /* No margin on the last column */
+}
+
+/* Optional: Adjust margin for smaller screens */
+@media (max-width: 800px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .column {
+        margin-right: 0;
+        margin-bottom: 20px; /* Space between columns in vertical layout */
+    }
+}
+
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 80px; /* Add this line to create space above the h3 elements */
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.custom-footer {
+    width: 90%; /* Set width to 90% of the screen */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the footer */
+}
+
+.custom-footer-text {
+    font-size: 14px;
+}
+
+.custom-footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.custom-footer-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px; /* Increased size */
+}
+
+.custom-footer-icons a:hover {
+    color: #ccc;
+}
+
+
+
+.custom-footer {
+    width: 90%; /* Set width to 90% of the screen */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Changed to relative */
+    left: 50%;
+    transform: translateX(-50%); /* Center the footer */
+}
+
+.custom-footer-text {
+    font-size: 14px;
+    color: #fff; /* Ensure text color is white */
+}
+
+.custom-footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.custom-footer-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px; /* Increased size */
+}
+
+.custom-footer-icons a:hover {
+    color: #ccc;
+}
