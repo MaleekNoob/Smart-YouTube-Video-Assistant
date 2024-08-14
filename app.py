@@ -146,6 +146,7 @@ def transcribe_chunks(chunk_filenames):
         full_transcription += result['text']
 
     return full_transcription
+
 # Function to delete audio chunks
 def delete_chunks(chunk_filenames):
     for chunk_filename in chunk_filenames:
@@ -184,6 +185,7 @@ def download_audio(video_link):
     except Exception as e:
         print(f'Error downloading audio: {e}')
         return None
+
 def transcribe_url(url):
     # Main script
     file_path = download_audio(url)
@@ -217,11 +219,11 @@ def transcribe_url(url):
 app = Flask(__name__)
 
 # Configure the Google Generative AI
-genai.configure(api_key=os.getenv("GEM_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Your API key and Programmable Search Engine ID
-api_key = 'AIzaSyBDNFet0sGeuVEub-iTWjNEyyNhSGIpB50'
-cse_id = '74a9c6ca4ecd7403c'
+api_key = os.getenv("GOOGLE_SEARCH_API_KEY")
+cse_id = os.getenv("CUSTOM_SEARCH_ENGINE_ID")
 
 
 generation_config = {
@@ -324,8 +326,7 @@ def get_captions_with_time(url):
     elif 'youtu.be' in url:
         url_for_captions = url.split('/')[-1].split('?')[0]
     try:
-        result = subprocess.run(['node', './caption-scraper.js', url_for_captions], capture_output=True, text=True,
-                                encoding='utf-8')
+        result = subprocess.run(['node', './caption-scraper.js', url_for_captions], capture_output=True, text=True, encoding='utf-8')
 
         print(result.returncode)
         if result.returncode != 0:
@@ -1133,7 +1134,7 @@ def recommendation():
     print("URL:" + url)
     print("Search Query: ", search_query)
 
-    api_key = "AIzaSyBDNFet0sGeuVEub-iTWjNEyyNhSGIpB50"
+    api_key = "AIzaSyB0QhqvnwtkkNQdW5T_So-4O4Um2k5JhIk"
     cse_id = "74a9c6ca4ecd7403c"
 
     video_search_result = google_search(search_query, api_key, cse_id, num=3, siteSearch='youtube.com')
@@ -1218,48 +1219,6 @@ def web_sources():
         return jsonify(search_data)
     except Exception as e:
         return jsonify({'error': str(e)})
-
-# @app.route('/web_search_component')
-# def web_sources():
-
-#     url = 'https://youtu.be/43d2LhXCQvQ?si=xEvm-cUIZMohKrAQ'
-#     title = get_video_title(url)
-#     prompt = f"I am developing an application in which I have to recommend the use with some web result based on provided YouTube video title. Therefore I want you to come up with a single relatable sample google search query keywords for the following YouTube video title: {title}. Remember, your output should be a search query that can be used to find relevant web results for the video title and no other context aur additional info is needed. Only a single relevant search query is required!"
-#     response = model.generate_content([prompt])
-#     search_query = response.text
-
-#     print("Search Query: ", search_query)
-
-#     search_query += ' -site:youtube.com'
-
-#     results = google_search(search_query, api_key, cse_id, num=4)
-
-#     search_data = []
-
-#     for item in results.get('items', []):
-#         title = item.get('title', 'No title')
-#         title = modify_string(title)
-#         snippet = item.get('snippet', 'No snippet')
-#         link = item.get('link', 'No link')
-    
-#         # Extract the date from the snippet
-#         date = extract_date(snippet)
-#         publisher = extract_publisher(link)
-        
-#         # print(f"Title: {title}")
-#         # print(f"Link: {link}")
-#         # print(f"Date: {date}")
-#         # print(f"Publisher: {publisher}")
-#         # print('-' * 80)
-
-#         search_data.append({
-#             'title': title,
-#             'publisher': publisher,
-#             'date': date,
-#             'url': link
-#         })
-
-#     return jsonify(search_data)
 
 
 
@@ -1616,8 +1575,7 @@ def videosummarize():
                 "output: ",
                 ])
             print(response.text)
-            # prompt = f"Find the best match of sentence: {sum_sentences[i]} with this list of captions: {combined_text} and their time durations: {combined_time}. Output must be only corresponding time duration in digits from {combined_time} without any pretext or concluding text or any type of text. Make sure that the best match output time duration must not present in {time}."
-            #response = model.generate_content([prompt])
+            
             timestamps_str = response.text.split('[')[1].split(']')[0]
             timestamps_list = timestamps_str.split(',')
             print("list of timestamps",timestamps_list)

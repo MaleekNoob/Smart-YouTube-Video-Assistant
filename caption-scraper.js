@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { getSubtitles } from 'youtube-captions-scraper';
 
 const videoId = process.argv[2];
-const apiKey = 'AIzaSyDY4n8CQLbDU2fFq5hRHwAZzCPrUIjpXN0';
+const apiKey = process.env.YOUTUBE_API_KEY;
 
 (async () => {
     try {
@@ -10,7 +10,7 @@ const apiKey = 'AIzaSyDY4n8CQLbDU2fFq5hRHwAZzCPrUIjpXN0';
         const captionsList = await getCaptionsList(videoId, apiKey);
 
         // Check if the captions list is empty
-        if (!captionsList || captionsList.length === 0) {
+        if (captionsList.length === 0) {
             throw new Error('No captions found for this video');
         }
 
