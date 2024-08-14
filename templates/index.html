@@ -1,48 +1,309 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="container mt-5">
-    <h2>Summarize Text</h2>
-    <form method="POST" action="{{ url_for('summarize') }}">
-        <div class="mb-3">
-            <label for="youtube-url" class="form-label">URL of Video</label>
-            <textarea class="form-control" name="youtube-url" rows="1" required></textarea>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="menu-bar">
+        <div class="logo">Logo</div>
+        <nav class="nav-menu">
+            <a href="#">Research</a>
+            <a href="#">Product</a>
+            <a href="#">Safety</a>
+            <a href="#">Company</a>
+        </nav>
+        <div class="search-container">
+            <button class="search-toggle" onclick="toggleSearch()">🔍</button>
+            <input type="text" class="search-bar" placeholder="Search...">
         </div>
-        <div class="mb-3">
-            <label for="summary_size" class="form-label">Summary Size (in words)</label>
-            <input type="number" class="form-control" name="summary_size" min="1" max="500" required>
+    </header>
+    <div class="content">
+        <div class="centered-container">
+            <h1 class="heading">Advancing AI to New Horizons</h1>
+            <p class="text">
+                Our tool represents a significant leap in harnessing AI capabilities, offering a comprehensive solution for analyzing and summarizing YouTube content. By integrating text extraction, summarization, video creation, and content discovery, we aim to push the boundaries of what AI can achieve in understanding and presenting multimedia information.
+            </p>
+            <div class="action-container">
+                <a class="view-research-btn" href="{{ url_for('indextest') }}" role="button">Try Now</a>
+                <a href="safety.html" class="learn-about-safety">Learn about safety ></a>
+            </div>
+            <img src="{{ url_for('static', filename='webimages/1.webp') }}" alt="My Image">
+            <blockquote class="quote">
+                “Leveraging AI to transform video content analysis is a crucial step towards enhancing multimedia understanding. Our tool integrates cutting-edge techniques to extract, summarize, and visualize information from YouTube videos, while also discovering related content. We are committed to refining these technologies to provide more accurate and insightful analyses.”<br>
+                <cite>[Your Name], Developer at Video Explainer</cite>
+            </blockquote>
+            <div class="focus-areas">
+                <h2>Focus areas</h2>
+                <div class="focus-areas-text">
+                    <p>
+                        We develop our video explanation tool using cutting-edge natural language processing techniques, which analyze video content and generate detailed, accurate explanations. Our approach ensures that complex topics are broken down and easily understood by all users.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="language" class="form-label">Language of Summary </label>
-             <select id="languages" class="form-select form-select-sm" name="language">
-                <option value="english">English</option>
-                <option value="spanish">Spanish</option>
-                <option value="chinese">Chinese</option>
-                <option value="arabic">Arabic</option>
-                <option value="portuguese">Portuguese</option>
-                <option value="bengali">Bengali</option>
-                <option value="russian">Russian</option>
-                <option value="japanese">Japanese</option>
-                <option value="german">German</option>
-                <option value="korean">Korean</option>
-                <option value="french">French</option>
-                <option value="turkish">Turkish</option>
-                <option value="italian">Italian</option>
-                <option value="polish">Polish</option>
-                <option value="ukrainian">Ukrainian</option>
-                <option value="dutch">Dutch</option>
-                <option value="romanian">Romanian</option>
-                <option value="greek">Greek</option>
-                <option value="hungarian">Hungarian</option>
-                <option value="swedish">Swedish</option>
-                <option value="czech">Czech</option>
-                <option value="hebrew">Hebrew</option>
-                <option value="danish">Danish</option>
-                <option value="finnish">Finnish</option>
-                <option value="norwegian">Norwegian</option>
-                <option value="malay">Malay</option>
-    </select>
+
+        <div class="audio-section">
+            <h2 class="audio-heading">Video Explanation</h2>
+            <p class="audio-text">
+                Our text models are sophisticated language processing systems designed to extract and summarize information from video content with precision. They generate clear and coherent summaries, classify key points, and provide insightful explanations, making complex multimedia content easily understandable.
+            </p>
+        </div> 
+        
+        <!-- Image Grid Section -->
+        <div class="container">
+            <div class="new-image-card" onclick="window.location.href='page4.html'">
+                <img src="{{ url_for('static', filename='webimages/2.webp') }}" alt="My Image">
+                <div class="top-text">Educational Video Insights</div>
+                <div class="overlay">Get in-depth explanations of educational videos for more effective learning.</div>
+            </div>
+            <div class="new-image-card" onclick="window.location.href='page5.html'">
+                <img src="{{ url_for('static', filename='webimages/3.webp') }}" alt="My Image">
+                <div class="top-text">Tutorial Summaries</div>
+                <div class="overlay">Receive concise summaries of tutorial videos to quickly grasp essential concepts.</div>
+            </div>
+            <div class="new-image-card" onclick="window.location.href='page6.html'">
+                <img src="{{ url_for('static', filename='webimages/4.webp') }}" alt="My Image">
+                <div class="top-text">Simplifying Complex Content</div>
+                <div class="overlay">Transform complex video content into easily understandable explanations.</div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Summarize</button>
-    </form>
-</div>
-{% endblock %}
+        
+        
+
+        <!-- New Text Section -->
+        <div class="audio-section">
+            <h2 class="audio-heading">Image</h2>
+            <p class="audio-text">
+                Our tool utilizes advanced image processing techniques to extract and analyze visuals from videos. By integrating technologies that identify and classify images, we enhance content understanding and visualization, creating insightful and engaging multimedia presentations.
+            </p>
+        </div> 
+    </div>
+
+    <!-- New Image Grid Section -->
+    <div class="container">
+        <div class="new-image-card" onclick="window.location.href='page4.html'">
+            <img src="{{ url_for('static', filename='webimages/5.webp') }}" alt="My Image">
+            <div class="top-text">In-Depth Video Explanations</div>
+            <div class="overlay">Our tool simplifies complex topics, making video content easy to understand.</div>
+        </div>
+        <div class="new-image-card" onclick="window.location.href='page5.html'">
+            <img src="{{ url_for('static', filename='webimages/6.webp') }}" alt="My Image">
+            <div class="top-text">Related Images and Videos</div>
+            <div class="overlay">Discover additional images and videos to enhance your learning experience.</div>
+        </div>
+        <div class="new-image-card" onclick="window.location.href='page6.html'">
+            <img src="{{ url_for('static', filename='webimages/7.webp') }}" alt="My Image">
+            <div class="top-text">Interactive Learning Tools</div>
+            <div class="overlay">Engage with supplementary visuals and interactive media for a richer context.</div>
+        </div>
+    </div>
+    
+    
+
+    <!-- Audio Section -->
+    <div class="audio-section">
+        <h2 class="audio-heading">Video Insights and Enhanced Learning</h2>
+        <p class="audio-text">
+            Our advanced AI tool excels in video analysis by extracting and interpreting text from video content. It generates detailed explanations and integrates related images and supplementary videos to provide a rich, contextual learning experience. This technology not only enhances comprehension of complex topics but also makes engaging with video content more effective and insightful.
+        </p>
+    </div> 
+
+    <div class="container">
+        <div class="new-image-card" onclick="window.location.href='page4.html'">
+            <img src="{{ url_for('static', filename='webimages/8.webp') }}" alt="My Image">
+            <div class="top-text">In-Depth Video Explanations</div>
+            <div class="overlay">Get detailed insights from video text analysis, simplifying complex topics for better understanding.</div>
+        </div>
+        <div class="new-image-card" onclick="window.location.href='page5.html'">
+            <img src="{{ url_for('static', filename='webimages/9.webp') }}" alt="My Image">
+            <div class="top-text">Rich Media Integration</div>
+            <div class="overlay">Augment learning with related images and videos, providing a comprehensive view of the content.</div>
+        </div>
+    </div>
+    
+    
+
+    <div class="audio-section">
+        <h2 class="audio-heading">Past highlights</h2>
+        <p class="audio-text">
+            Our current video analysis tool builds upon a foundation of extensive research and development. By leveraging past advancements in AI and video processing, we have created a tool that offers detailed explanations and enhanced learning through related media, reflecting the culmination of our ongoing efforts and innovations.
+        </p>
+    </div>
+    <div class="action-container">
+        <button class="view-research-btn">View research index</button>
+    </div>
+
+    <div class="container">
+        <div class="new-image-card" onclick="window.location.href='page4.html'">
+            <img src="{{ url_for('static', filename='webimages/10.webp') }}" alt="My Image">
+            <div class="top-text">Research . Jul 12, 2023</div>
+            <div class="overlay">Advanced Techniques in Video Analysis</div>
+        </div>
+        <div class="new-image-card" onclick="window.location.href='page5.html'">
+            <img src="{{ url_for('static', filename='webimages/11.webp') }}" alt="My Image">
+            <div class="top-text">Research . Mar 5, 2022</div>
+            <div class="overlay">Breakthroughs in Video Text Extraction</div>
+        </div>
+        <div class="new-image-card" onclick="window.location.href='page6.html'">
+            <img src="{{ url_for('static', filename='webimages/12.webp') }}" alt="My Image">
+            <div class="top-text">Research . Nov 20, 2021</div>
+            <div class="overlay">Enhancing Learning with Supplementary Media</div>
+        </div>
+    </div>
+    
+    
+
+    <div class="audio-section">
+        <h2 class="audio-heading">Featured Roles</h2>
+        <p class="audio-text">
+            We are actively looking for skilled individuals to join our dynamic team. Explore our featured roles to find opportunities where you can make a significant impact, or view all open positions to see where you might fit in.
+        </p>
+    </div>
+
+    <div class="action-container">
+        <button class="view-research-btn">View all careers</button>
+    </div>
+
+
+    <div class="job-listings-container">
+        <div class="job-listing">
+            <div class="job-title">
+                <a href="details.html" class="job-title-link">AI Video Analysis Engineer</a>
+                <span class="department" style="padding-left: 20px;">Engineering</span>
+            </div>
+            <div class="location">Islamabad</div>
+            <a href="apply.html" class="apply-link">Apply now</a>
+        </div>
+        <div class="job-listing">
+            <div class="job-title">
+                <a href="details.html" class="job-title-link">Machine Learning Researcher</a>
+                <span class="department" style="padding-left: 20px;">Research</span>
+            </div>
+            <div class="location">Islamabad</div>
+            <a href="apply.html" class="apply-link">Apply now</a>
+        </div>
+        <div class="job-listing">
+            <div class="job-title">
+                <a href="details.html" class="job-title-link">Computer Vision Specialist</a>
+                <span class="department" style="padding-left: 20px;">Engineering</span>
+            </div>
+            <div class="location">Islamabad</div>
+            <a href="apply.html" class="apply-link">Apply now</a>
+        </div>
+        <div class="job-listing">
+            <div class="job-title">
+                <a href="details.html" class="job-title-link">Data Scientist - Video Analysis</a>
+                <span class="department" style="padding-left: 20px;">Data Science</span>
+            </div>
+            <div class="location">Islamabad</div>
+            <a href="apply.html" class="apply-link">Apply now</a>
+        </div>
+        <div class="job-listing">
+            <div class="job-title">
+                <a href="details.html" class="job-title-link">Software Engineer - Media Tools</a>
+                <span class="department" style="padding-left: 20px;">Engineering</span>
+            </div>
+            <div class="location">Islamabad</div>
+            <a href="apply.html" class="apply-link">Apply now</a>
+        </div>
+    </div>
+        
+    
+    <div class="content1">
+        <div class="column1">
+            <h1>Explore all research</h1>
+            <a href="#" class="button1">View research index</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="column">
+            <h3>About Us</h3>
+            <ul>
+                <li><a href="#">Our Mission</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+            <h3>Our Tool</h3>
+            <ul>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Case Studies</a></li>
+            </ul>
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Get Started</h3>
+            <ul>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+            <h3>Explore More</h3>
+            <ul>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Webinars</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Charter</a></li>
+            </ul>
+            <h3>Contact</h3>
+            <ul>
+                <li><a href="#">General Inquiries</a></li>
+                <li><a href="#">Partnerships</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <div class="custom-footer">
+        <div class="custom-footer-text">OpenAI © 2015–2024</div>
+        <div class="custom-footer-icons">
+            <a href="#" class="fas fa-times"></a>
+            <a href="#" class="fab fa-youtube"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-github"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-tiktok"></a>
+            <a href="#" class="fab fa-discord"></a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+
