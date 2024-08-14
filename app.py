@@ -530,7 +530,7 @@ def extract_clip1(video_path, start_seconds, end_seconds):
 #     return render_template('landing-page.html')
 @app.route('/')
 def home():
-    return render_template('landing-page.html')
+    return render_template('index.html')
 
 
 @app.route('/indextest', methods=['GET'])
