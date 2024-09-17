@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { getSubtitles } from 'youtube-captions-scraper';
 
 const videoId = process.argv[2];
-const apiKey = process.env.YOUTUBE_API_KEY;
+const apiKey = 'AIzaSyCAV73EKedKhVm3Vslz389wY6_OB1z2aw0';
 
 (async () => {
     try {

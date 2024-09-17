@@ -14,7 +14,7 @@ import markdown2
 import yt_dlp
 import shutil
 from gtts import gTTS
-import ffmpeg
+# import ffmpeg
 from moviepy.editor import VideoFileClip, AudioFileClip
 from moviepy.audio.fx.all import audio_fadein, audio_fadeout
 from moviepy.video.fx.all import resize
@@ -219,11 +219,11 @@ def transcribe_url(url):
 app = Flask(__name__)
 
 # Configure the Google Generative AI
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key='AIzaSyCXHkkCu6JlxqfT3_WPZGLjSh6hUOcabpM')
 
 # Your API key and Programmable Search Engine ID
-api_key = os.getenv("GOOGLE_SEARCH_API_KEY")
-cse_id = os.getenv("CUSTOM_SEARCH_ENGINE_ID")
+api_key = 'AIzaSyCAV73EKedKhVm3Vslz389wY6_OB1z2aw0'
+cse_id = '74a9c6ca4ecd7403c'
 
 
 generation_config = {
@@ -1134,8 +1134,9 @@ def recommendation():
     print("URL:" + url)
     print("Search Query: ", search_query)
 
-    api_key = "AIzaSyB0QhqvnwtkkNQdW5T_So-4O4Um2k5JhIk"
-    cse_id = "74a9c6ca4ecd7403c"
+    # Your API key and Programmable Search Engine ID
+    api_key = 'AIzaSyCAV73EKedKhVm3Vslz389wY6_OB1z2aw0'
+    cse_id = '74a9c6ca4ecd7403c'
 
     video_search_result = google_search(search_query, api_key, cse_id, num=3, siteSearch='youtube.com')
     image_search_result = google_search_image(search_query, api_key, cse_id, num=4)
