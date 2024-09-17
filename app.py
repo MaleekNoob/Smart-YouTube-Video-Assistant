@@ -10,7 +10,7 @@ from pytube import YouTube
 from pydub import AudioSegment
 import whisper
 import markdown2
-import ollama
+# import ollama
 import yt_dlp
 import shutil
 from gtts import gTTS
@@ -857,7 +857,7 @@ def generic():
                 print(str(e))
                 print("Trying Ollama")
                 try:
-                    response = ollama.generate(model='llama3', prompt=prompt)
+                    response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
                     summary = response['response']
                 except:
                     error = str(e)
@@ -1552,7 +1552,7 @@ def videosummarize():
         print(str(e))
         print("Trying Ollama")
         try:
-            response = ollama.generate(model='llama3', prompt=prompt)
+            response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
             summary = response['response']
         except:
             error = str(e)
@@ -1671,7 +1671,7 @@ def qa():
             print(str(e))
             print("Trying Ollama")
             try:
-                response = ollama.generate(model='llama3', prompt=prompt)
+                response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
                 qa_dict = response['response']
                 qa_content = qa_dict
 
@@ -1724,7 +1724,7 @@ def tech_details():
             print(str(e))
             print("Trying Ollama")
             try:
-                response = ollama.generate(model='llama3', prompt=prompt)
+                response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
                 summary = response['response']
             except:
                 error = str(e)
@@ -1759,7 +1759,7 @@ def recap():
             print("Trying Ollama")
             try:
                 prompt = f"Recap the event discussed in the following text : {main_text}. Do not include any pre-text like here are the main events. start directly from the points"
-                response = ollama.generate(model='llama3', prompt=prompt)
+                response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
                 recap = response['response']
                 recap = response.text.replace('*', '')
             except:
@@ -1802,7 +1802,7 @@ def opinions_arguments():
             print(str(e))
             print("Trying Ollama")
             try:
-                response = ollama.generate(model='llama3', prompt=prompt)
+                response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
                 analysis = response['response']
                 analysis = analysis.replace("*", "")
 
@@ -1883,7 +1883,7 @@ def define():
         print(error)
         print("Trying Ollama")
         try:
-            response = ollama.generate(model='llama3', prompt=prompt)
+            response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
             definitions = response['response']
             colon_index = definitions.find(":")
             definition = definitions[:colon_index+1] + '<br><br>' + definitions[colon_index+1:]
@@ -1958,7 +1958,7 @@ def compare():
         print("Trying Ollama")
         try:
             prompt = f"Compare {item_a} and {item_b} discussed in the following text: {main_text}. Separate them into {item_a} and {item_b}  without including any pretext."
-            response = ollama.generate(model='llama3', prompt=prompt)
+            response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
             comparison = response['response']
             colon_index = comparison.find(":")
             comparison = comparison[:colon_index + 1] + '<br><br>' + comparison[colon_index + 1:]
@@ -2017,7 +2017,7 @@ def detail():
         print("Trying Ollama")
         try:
             prompt = f"Give all details on {specific_point} discussed in the following text: {main_text}.Make it as long as possible. Do not include any introductory or concluding remarks. Also the output should be related to {specific_point} and you should keep it to the point and make it in your own words by using the text and dont add Let me know if you'd like me to clarify anything!"
-            response = ollama.generate(model='llama3', prompt=prompt)
+            response = 'ollama.generate(model=\'llama3\', prompt=prompt)'
             detail = response['response']
             colon_index = detail.find(":")
             detail = detail[:colon_index + 1] + '<br><br>' + detail[colon_index + 1:]
