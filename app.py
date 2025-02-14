@@ -62,7 +62,7 @@ def remove_audio(input_file, output_file):
         # Remove audio
         video = video.without_audio()
         
-        # Save the video without audio
+        # Save the video without audio, hehe
         video.write_videofile(output_file, codec='libx264', audio_codec='aac')
         
         print(f"Audio removed successfully. Saved as {output_file}")
@@ -123,7 +123,7 @@ def concatenate_clips(clips):
     return random_number
 
 
-# Function to chunk the audio file
+# Function to chunk the audio file, just for user
 def chunk_audio(file_path, chunk_length_ms):
     audio = AudioSegment.from_file(file_path)
     chunks = make_chunks(audio, chunk_length_ms)
@@ -218,7 +218,7 @@ def transcribe_url(url):
 #Other code
 app = Flask(__name__)
 
-# Configure the Google Generative AI
+# Configure the Google Generative AI for my project
 genai.configure(api_key='AIzaSyCXHkkCu6JlxqfT3_WPZGLjSh6hUOcabpM')
 
 # Your API key and Programmable Search Engine ID
